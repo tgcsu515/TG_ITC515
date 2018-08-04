@@ -47,9 +47,9 @@ public class FixBookUI {
 				break;	
 				
 			case FIXING:
-				String ans = input("Fix Book? (Y/N) : ");
+				String userSelectedAnswer = input("Fix Book? (Y/N) : ");
 				boolean fix = false;
-				if (ans.toUpperCase().equals("Y")) {
+				if (userSelectedAnswer.toUpperCase().equals("Y")) {
 					fix = true;
 				}
 				control.fixBook(fix);
