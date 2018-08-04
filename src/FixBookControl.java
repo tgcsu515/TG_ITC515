@@ -5,7 +5,7 @@ public class FixBookControl {
 	private CONTROL_STATE state;
 	
 	private Library library;
-	private book currentBook;
+	private Book currentBook;
 
 
 	public FixBookControl() {
@@ -63,10 +63,5 @@ public class FixBookControl {
 		}	
 		ui.setState(FixBookUI.UI_STATE.COMPLETED);		
 	}
-
-
-
-
-
 
 }
