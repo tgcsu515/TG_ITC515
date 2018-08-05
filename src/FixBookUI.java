@@ -61,8 +61,7 @@ public class FixBookUI {
 			
 			default:
 				output("Unhandled state");
-				throw new RuntimeException("FixBookUI : unhandled state :" + state);			
-			
+				throw new RuntimeException("FixBookUI : unhandled state :" + state);						
 			}		
 		}
 		
@@ -82,7 +81,5 @@ public class FixBookUI {
 
 	public void display(Object object) {
 		output(object);
-	}
-	
-	
+	}	
 }
