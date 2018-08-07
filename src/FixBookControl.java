@@ -28,13 +28,13 @@ public class FixBookControl {
 		if (!currentState.equals(CONTROL_STATE.READY)) {
 			throw new RuntimeException("FixBookControl: cannot call bookScanned except in READY state");
 		}	
-		currentBook = library.Book(bookId);
+		currentBook = library.book(bookId); //Made the first letter to lowercase in the method name. Author: Kasun Amarasinghe & Reviewer: All other members
 		
 		if (currentBook == null) {
 			currentFixBookUI.display("Invalid bookId");
 			return;
 		}
-		if (!currentBook.Damaged()) {
+		if (!currentBook.damaged()) { //Made the first letter to lowercase in the method name. Author: Kasun Amarasinghe & Reviewer: All other members
 			currentFixBookUI.display("\"Book has not been damaged");
 			return;
 		}
