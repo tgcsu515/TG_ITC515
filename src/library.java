@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 @SuppressWarnings("serial")
-public class library implements Serializable {
+public class Library implements Serializable { // change the first letter of the class from lower to upper case
 	
 	private static final String LIBRARY_FILE = "library.obj";
 	private static final int LOAN_LIMIT = 2;
@@ -22,32 +22,32 @@ public class library implements Serializable {
 	private static final double MAX_FINES_OWED = 5.0;
 	private static final double DAMAGE_FEE = 2.0;
 	
-	private static library self;
+	private static Library self; // Author Amandeep Kaur change the first letter of the class from lower to upper case 
 	private int BID;
 	private int MID;
 	private int LID;
 	private Date loadDate;
 	
-	private Map<Integer, book> catalog;
-	private Map<Integer, member> members;
-	private Map<Integer, loan> loans;
-	private Map<Integer, loan> currentLoans;
-	private Map<Integer, book> damagedBooks;
+	private Map<Integer, Book> catalog;// Author Amandeep Kaur change the first letter of the class Book from lower to upper case
+	private Map<Integer, Member> members;// Author Amandeep Kaur change the first letter of the class Member from lower to upper case
+	private Map<Integer, Loan> loans;// Author Amandeep Kaur change the first letter of the class from Loan lower to upper case
+	private Map<Integer, Loan> currentLoans;//  Author Amandeep Kaur change the first letter of the class from  Loan lower to upper case
+	private Map<Integer, Book> damagedBooks;// Author Amandeep Kaur change the first letter of the class from  Book lower to upper case
 	
 
-	private library() {
+	private Library() { //  Author Amandeep Kaur change the constructor name from lower to upper case
 		catalog = new HashMap<>();
 		members = new HashMap<>();
 		loans = new HashMap<>();
 		currentLoans = new HashMap<>();
 		damagedBooks = new HashMap<>();
 		BID = 1;
-		MID = 1;		
+		MID = 1;	
 		LID = 1;		
-	}
+	} 
 
 	
-	public static synchronized library INSTANCE() {		
+	public static synchronized Library instance() {		// change the class name from lower to upper case and method name from capital to lower
 		if (self == null) {
 			Path path = Paths.get(LIBRARY_FILE);			
 			if (Files.exists(path)) {	
@@ -61,7 +61,7 @@ public class library implements Serializable {
 					throw new RuntimeException(e);
 				}
 			}
-			else self = new library();
+			else self = new Library();// change the class name from lower to upper case
 		}
 		return self;
 	}
@@ -82,17 +82,20 @@ public class library implements Serializable {
 	}
 
 	
-	public int BookID() {
+	public int bookID() // author Amandeep Kaur change the method  first letter capital to lower
+	{
 		return BID;
 	}
 	
 	
-	public int MemberID() {
+	public int memberID() //author Amandeep Kaur change the method  first letter capital to lower
+	{
 		return MID;
 	}
 	
 	
-	private int nextBID() {
+	private int nextBID() 
+	{
 		return BID++;
 	}
 
@@ -122,28 +125,32 @@ public class library implements Serializable {
 	}
 
 
-	public member Add_mem(String lastName, String firstName, String email, int phoneNo) {		
-		member member = new member(lastName, firstName, email, phoneNo, nextMID());
+	public Member addMember(String lastName, String firstName, String email, int phoneNo) // author Amandeep kaur change the method name and class Member first letter lower to upper
+	{		
+		Member member = new Member(lastName, firstName, email, phoneNo, nextMID());
 		members.put(member.getId(), member);		
 		return member;
 	}
 
 	
-	public book Add_book(String a, String t, String c) {		
-		book b = new book(a, t, c, nextBID());
+	public Book addBook(String a, String t, String c) // author Amandeep Kaur change the variable  naming convention to camel case
+	{		
+		Book b = new book(a, t, c, nextBID());
 		catalog.put(b.ID(), b);		
 		return b;
 	}
 
 	
-	public member getMember(int memberId) {
+	public Member getMember(int memberId) // author Amandeep Kaur change the class name first letter from lower to upper
+	{
 		if (members.containsKey(memberId)) 
 			return members.get(memberId);
 		return null;
 	}
 
 	
-	public book Book(int bookId) {
+	public Book book(int bookId) // Author Amandeep Kaur change the first letter of the class Book from lower to upper case and method name from upper to lower
+	{
 		if (catalog.containsKey(bookId)) 
 			return catalog.get(bookId);		
 		return null;
@@ -155,14 +162,15 @@ public class library implements Serializable {
 	}
 
 	
-	public boolean memberCanBorrow(member member) {		
+	public boolean memberCanBorrow(Member member) // Author Amandeep Kaur change the first letter of the class Member from lower to upper case
+	{		
 		if (member.getNumberOfCurrentLoans() == LOAN_LIMIT ) 
 			return false;
 				
 		if (member.getFinesOwed() >= MAX_FINES_OWED) 
 			return false;
 				
-		for (loan loan : member.getLoans()) 
+		for (Loan loan : member.getLoans()) // Author Amandeep Kaur change the first letter of the class Loan from lower to upper case
 			if (loan.isOverDue()) 
 				return false;
 			
@@ -170,14 +178,16 @@ public class library implements Serializable {
 	}
 
 	
-	public int loansRemainingForMember(member member) {		
+	public int loansRemainingForMember(Member member) // Author Amandeep Kaur change the first letter of the class Member from lower to upper case
+	{		
 		return LOAN_LIMIT - member.getNumberOfCurrentLoans();
 	}
 
 	
-	public loan issueLoan(book book, member member) {
+	public Loan issueLoan(Book book, Member member) // Author Amandeep Kaur change the first letter of the class Loan , Book and Member from lower to upper case
+	{
 		Date dueDate = Calendar.getInstance().getDueDate(LOAN_PERIOD);
-		loan loan = new loan(nextLID(), book, member, dueDate);
+		Loan loan = new loan(nextLID(), book, member, dueDate);
 		member.takeOutLoan(loan);
 		book.Borrow();
 		loans.put(loan.getId(), loan);
@@ -186,7 +196,8 @@ public class library implements Serializable {
 	}
 	
 	
-	public loan getLoanByBookId(int bookId) {
+	public Loan getLoanByBookId(int bookId) // Author Amandeep Kaur change the first letter of the class  Loan from lower to upper case
+	{
 		if (currentLoans.containsKey(bookId)) {
 			return currentLoans.get(bookId);
 		}
