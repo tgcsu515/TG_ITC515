@@ -3,18 +3,18 @@ import java.util.Scanner;
 
 public class BorrowBookUI {
 	
-	public static enum UI_STATE { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };
+	public static enum BORROW_BOOK_UI_STATE { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };  //Change the variable name from "UI_STATE" to "BORROW_BOOK_UI_STATE" - BY GURPREET GILL
 
-	private BorrowBookControl control;
+	private BorrowBookControl borrowBookControl;  //Change the variable name from "state" to "borrowBookControl" - BY GURPREET GILL
 	private Scanner input;
-	private UI_STATE state;
+	private BORROW_BOOK_UI_STATE borrowBookUiState;  //Change the variable name from "UI_STATE" to "BORROW_BOOK_UI_STATE" - BY GURPREET GILL
 
 	
-	public BorrowBookUI(BorrowBookControl control) {
-		this.control = control;
+	public borrowBookUI(BorrowBookControl borrowBookControl) {  //Change the method name from "BorrowBookUI" to "borrowBookUI" - BY GURPREET GILL
+		this.borrowBookControl = borrowBookControl;  //Change the variable name from "control" to "borrowBookControl" - BY GURPREET GILL
 		input = new Scanner(System.in);
-		state = UI_STATE.INITIALISED;
-		control.setUI(this);
+		borrowBookUiState = BORROW_BOOK_UI_STATE.INITIALISED;  //Change the variable name from "state" to "borrowBookUiState" - BY GURPREET GILL
+		borrowBookControl.setBorrowBookUi(this);  //Change the variable name from "setUI" to "setBorrowBookUi" - BY GURPREET GILL
 	}
 
 	
@@ -29,8 +29,8 @@ public class BorrowBookUI {
 	}
 	
 			
-	public void setState(UI_STATE state) {
-		this.state = state;
+	public void setBorrowBookState(BORROW_BOOK_UI_STATE borrowBookUiState) {  //Change the variable name from "setState" to "setBorrowBookState" - BY GURPREET GILL
+		this.borrowBookUiState = borrowBookUiState;  //Change the variable name from "state" to "borrowBookUiState" - BY GURPREET GILL
 	}
 
 	
