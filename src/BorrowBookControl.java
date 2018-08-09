@@ -3,21 +3,21 @@ import java.util.List;
 
 public class BorrowBookControl {
 	
-	private BorrowBookUI ui;
+	private BorrowBookUI borrowBookUi;  //Change the variable name from "UI" to "borrowBookUi" - BY GURPREET GILL
 	
-	private library L;
-	private member M;
-	private enum CONTROL_STATE { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };
-	private CONTROL_STATE state;
+	private Library library; //Change the variable name from "L" to "library" - BY GURPREET GILL
+	private Member member; //Change the variable name from "M", "member" to "member(object name)", "Member(class name)" - BY GURPREET GILL
+	private enum BORROW_BOOK_CONTROL_STATE { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED }; //Change the variable name from "CONTROL_STATE" to "BORROW_BOOK_CONTROL_STATE" - BY GURPREET GILL
+	private BORROW_BOOK_CONTROL_STATE borrowBookControlState; //Change the variable name from "CONTROL_STATE" to "BORROW_BOOK_CONTROL_STATE" - BY GURPREET GILL
 	
-	private List<book> PENDING;
-	private List<loan> COMPLETED;
-	private book B;
+	private List<Book> PENDING; //Change the class name from "book" to "Book" - BY GURPREET GILL
+	private List<Loan> COMPLETED; //Change the class name from "loan" to "Loan" - BY GURPREET GILL
+	private Book book; //Change the object name from "B" to "book" - BY GURPREET GILL
 	
 	
-	public BorrowBookControl() {
-		this.L = L.INSTANCE();
-		state = CONTROL_STATE.INITIALISED;
+	public borrowBookControl() { //Change the object name from "BorrowBookControl" to "borrowBookControl" - BY GURPREET GILL
+		this.library = library.INSTANCE(); //Change the object name from "L" to "library" - BY GURPREET GILL
+		borrowBookControlState = BORROW_BOOK_CONTROL_STATE.INITIALISED; //Change the object name from "state" to "borrowBookControlState" - BY GURPREET GILL
 	}
 	
 
