@@ -68,7 +68,7 @@ public class Book implements Serializable {   //Change the class name from "book
 	}
 
 
-	public void toReturn(boolean DAMAGED) {  //Change the method name from "Return" to "toReturn" - BY GURPREET GILL
+	public void bookReturn(boolean DAMAGED) {  //Change the method name from "Return" to "bookReturn" - BY GURPREET GILL
 		if (bookState.equals(BOOK_STATE.ON_LOAN)) { //Change the variable name from "STATE" to "BOOK_STATE" - BY GURPREET GILL
 			if (DAMAGED) {
 				bookState = BOOK_STATE.DAMAGED; //Change the variable name from "STATE" to "BOOK_STATE" - BY GURPREET GILL
