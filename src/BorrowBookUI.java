@@ -39,7 +39,7 @@ public class BorrowBookUI {
 		
 		while (true) {
 			
-			switch (state) {			
+			switch (borrowBookUiState) {  //Change the variable name from "state" to "borrowBookUiState" - BY GURPREET GILL
 			
 			case CANCELLED:
 				output("Borrowing Cancelled");
@@ -47,14 +47,14 @@ public class BorrowBookUI {
 
 				
 			case READY:
-				String memStr = input("Swipe member card (press <enter> to cancel): ");
-				if (memStr.length() == 0) {
-					control.cancel();
+				String memberCard = input("Swipe member card (press <enter> to cancel): ");  //Change the variable name from "memStr" to "memberCard" - BY GURPREET GILL
+				if (memberCard.length() == 0) {  //Change the variable name from "memStr" to "memberCard" - BY GURPREET GILL
+					borrowBookControl.cancel();  //Change the variable name from "control" to "borrowBookControl" - BY GURPREET GILL
 					break;
 				}
 				try {
-					int memberId = Integer.valueOf(memStr).intValue();
-					control.Swiped(memberId);
+					int memberId = Integer.valueOf(memberCard).intValue();  //Change the variable name from "memStr" to "memberCard" - BY GURPREET GILL
+					borrowBookControl.Swiped(memberId);  //Change the variable name from "control" to "borrowBookControl" - BY GURPREET GILL
 				}
 				catch (NumberFormatException e) {
 					output("Invalid Member Id");
@@ -64,19 +64,19 @@ public class BorrowBookUI {
 				
 			case RESTRICTED:
 				input("Press <any key> to cancel");
-				control.cancel();
+				borrowBookControl.cancel();  //Change the variable name from "control" to "borrowBookControl" - BY GURPREET GILL
 				break;
 			
 				
 			case SCANNING:
-				String bookStr = input("Scan Book (<enter> completes): ");
-				if (bookStr.length() == 0) {
-					control.Complete();
+				String scanBook = input("Scan Book (<enter> completes): ");  //Change the variable name from "bookStr" to "scanBook" - BY GURPREET GILL
+				if (scanBook.length() == 0) {  //Change the variable name from "bookStr" to "scanBook" - BY GURPREET GILL
+					borrowBookControl.Complete();   //Change the variable name from "control" to "borrowBookControl" - BY GURPREET GILL
 					break;
 				}
 				try {
-					int bookId = Integer.valueOf(bookStr).intValue();
-					control.Scanned(bookId);
+					int bookId = Integer.valueOf(scanBook).intValue();  //Change the variable name from "bookStr" to "scanBook" - BY GURPREET GILL
+					borrowBookControl.Scanned(bookId);  //Change the variable name from "control" to "borrowBookControl" - BY GURPREET GILL
 					
 				} catch (NumberFormatException e) {
 					output("Invalid Book Id");
@@ -85,12 +85,12 @@ public class BorrowBookUI {
 					
 				
 			case FINALISING:
-				String ans = input("Commit loans? (Y/N): ");
-				if (ans.toUpperCase().equals("N")) {
-					control.cancel();
+				String userInput = input("Commit loans? (Y/N): ");  //Change the variable name from "ans" to "userInput" - BY GURPREET GILL
+				if (userInput.toUpperCase().equals("N")) {  //Change the variable name from "ans" to "userInput" - BY GURPREET GILL
+					borrowBookControl.cancel();  //Change the variable name from "control" to "borrowBookControl" - BY GURPREET GILL
 					
 				} else {
-					control.commitLoans();
+					borrowBookControl.commitLoans();  //Change the variable name from "control" to "borrowBookControl" - BY GURPREET GILL
 					input("Press <any key> to complete ");
 				}
 				break;
@@ -103,7 +103,7 @@ public class BorrowBookUI {
 				
 			default:
 				output("Unhandled state");
-				throw new RuntimeException("BorrowBookUI : unhandled state :" + state);			
+				throw new RuntimeException("BorrowBookUI : unhandled state :" + borrowBookUiState);	  //Change the variable name from "state" to "borrowBookUiState" - BY GURPREET GILL		
 			}
 		}		
 	}
