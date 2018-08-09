@@ -14,30 +14,30 @@ public class Book implements Serializable {   //Change the class name from "book
 	
 	
 	public book(String author, String title, String callNo, int id) {
-		this.A = author;
-		this.T = title;
-		this.C = callNo;
-		this.ID = id;
+		this.author = author;  //Change the variable name from "this.A" to "this.author" - BY GURPREET GILL
+		this.title = title;  //Change the variable name from "this.T" to "this.title" - BY GURPREET GILL
+		this.callNo = callNo;  //Change the variable name from "this.C" to "this.callNo" - BY GURPREET GILL
+		this.id = id;  //Change the variable name from "this.ID" to "this.id" - BY GURPREET GILL
 		this.state = STATE.AVAILABLE;
 	}
 	
 	public String toString() {
-		StringBuilder sb = new StringBuilder();
-		sb.append("Book: ").append(ID).append("\n")
-		  .append("  Title:  ").append(T).append("\n")
-		  .append("  Author: ").append(A).append("\n")
-		  .append("  CallNo: ").append(C).append("\n")
+		StringBuilder stringBuilder = new StringBuilder();  //Change the object name from "sb" to "stringBuilder" - BY GURPREET GILL
+		stringBuilder.append("Book: ").append(id).append("\n")  //Change the variable name from "ID" to "id" - BY GURPREET GILL
+		  .append("  Title:  ").append(title).append("\n") //Change the variable name from "T" to "title" - BY GURPREET GILL
+		  .append("  Author: ").append(author).append("\n")  //Change the variable name from "A" to "author" - BY GURPREET GILL
+		  .append("  CallNo: ").append(callNo).append("\n")  //Change the variable name from "C" to "callNo" - BY GURPREET GILL
 		  .append("  State:  ").append(state);
 		
-		return sb.toString();
+		return stringBuilder.toString();  //Change the object name from "sb" to "stringBuilder" - BY GURPREET GILL
 	}
 
-	public Integer ID() {
-		return ID;
+	public Integer id() {  //Change the method name from "ID" to "id" - BY GURPREET GILL
+		return id;   //Change the name from "ID" to "id" - BY GURPREET GILL
 	}
 
-	public String Title() {
-		return T;
+	public String title() {  //Change the nethod name from "Title" to "title" - BY GURPREET GILL
+		return title;  //Change the variable name from "T" to "title" - BY GURPREET GILL
 	}
 
 
