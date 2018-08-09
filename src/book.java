@@ -57,7 +57,7 @@ public class Book implements Serializable {   //Change the class name from "book
 	}
 
 	
-	public void Borrow() {
+	public void borrow() {  //Change the method name from "Borrow" to "borrow" - BY GURPREET GILL
 		if (state.equals(STATE.AVAILABLE)) {
 			state = STATE.ON_LOAN;
 		}
@@ -68,7 +68,7 @@ public class Book implements Serializable {   //Change the class name from "book
 	}
 
 
-	public void Return(boolean DAMAGED) {
+	public void toReturn(boolean DAMAGED) {  //Change the method name from "Return" to "toReturn" - BY GURPREET GILL
 		if (state.equals(STATE.ON_LOAN)) {
 			if (DAMAGED) {
 				state = STATE.DAMAGED;
@@ -83,7 +83,7 @@ public class Book implements Serializable {   //Change the class name from "book
 	}
 
 	
-	public void Repair() {
+	public void repair() {  //Change the method name from "Repair" to "repair" - BY GURPREET GILL
 		if (state.equals(STATE.DAMAGED)) {
 			state = STATE.AVAILABLE;
 		}
