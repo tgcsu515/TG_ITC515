@@ -36,23 +36,23 @@ public class Book implements Serializable {   //Change the class name from "book
 		return id;   //Change the name from "ID" to "id" - BY GURPREET GILL
 	}
 
-	public String title() {  //Change the nethod name from "Title" to "title" - BY GURPREET GILL
+	public String title() {  //Change the method name from "Title" to "title" - BY GURPREET GILL
 		return title;  //Change the variable name from "T" to "title" - BY GURPREET GILL
 	}
 
 
 	
-	public boolean Available() {
+	public boolean available() {  //Change the method name from "Available" to "available" - BY GURPREET GILL
 		return state == STATE.AVAILABLE;
 	}
 
 	
-	public boolean On_loan() {
+	public boolean on_loan() {  //Change the method name from "On_loan" to "on_loan" - BY GURPREET GILL
 		return state == STATE.ON_LOAN;
 	}
 
 	
-	public boolean Damaged() {
+	public boolean damaged() {  //Change the method name from "Damaged" to "damaged" - BY GURPREET GILL
 		return state == STATE.DAMAGED;
 	}
 
