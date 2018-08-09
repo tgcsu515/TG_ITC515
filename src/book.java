@@ -2,12 +2,12 @@ import java.io.Serializable;
 
 
 @SuppressWarnings("serial")
-public class book implements Serializable {
+public class Book implements Serializable {   //Change the class name from "book" to "Book" - BY GURPREET GILL
 	
-	private String T;
-	private String A;
-	private String C;
-	private int ID;
+	private String title; //Change the variable name from "T" to "title" - BY GURPREET GILL
+	private String author;  //Change the variable name from "A" to "author" - BY GURPREET GILL
+	private String callNo;  //Change the variable name from "C" to "callNo" - BY GURPREET GILL
+	private int id;  //Change the variable name from "ID" to "id" - BY GURPREET GILL
 	
 	private enum STATE { AVAILABLE, ON_LOAN, DAMAGED, RESERVED };
 	private STATE state;
