@@ -1,3 +1,11 @@
+/** Author: Kanchan Bala, Team Name: Team Genius, Student id: 11635336
+ *@version 9.0.4(build 9.0.4+ 11)
+ *
+ *In this program I have made few changes with variable name "cal". As per the guidelines, the names should be
+ * meaningful, so I have changed "cal" to the "currentCalendar". Other than that I could not find any other errors 
+ * which breach the guidelines.
+ */
+
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
