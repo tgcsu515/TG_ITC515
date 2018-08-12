@@ -1,3 +1,9 @@
+/*The author for the following FixBookUI class is Kasun Amarasinghe.
+  All the other members will review the code updates which were done to this file.
+  Arashdeep Kuar is the mediator for this class file.
+  This class file will be reviewed using the given Code Style Guidelines and necessary code updates will be done by the Author.
+*/
+
 public class FixBookControl {
 	
 	private FixBookUI currentFixBookUI;
