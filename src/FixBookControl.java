@@ -2,14 +2,14 @@ public class FixBookControl {
 	
 	private FixBookUI currentFixBookUI;
 	private enum CONTROL_STATE { INITIALISED, READY, FIXING };
-	private CONTROL_STATE currentState;
+	private CONTROL_STATE currentState; 
 	
-	private Library library;
-	private Book currentBook;
+	private Library library; //Capitalized the first letter of the Library class name - Author: Kasun Amarasinghe
+	private Book currentBook; //Capitalized the first letter of the Book class - Author: Kasun Amarasinghe
 
 
 	public FixBookControl() {
-		this.library = Library.INSTANCE();
+		this.library = Library.INSTANCE();//Capitalized the first letter of the Library class name - Author: Kasun Amarasinghe
 		currentState = CONTROL_STATE.INITIALISED;
 	}
 	
@@ -28,8 +28,7 @@ public class FixBookControl {
 		if (!currentState.equals(CONTROL_STATE.READY)) {
 			throw new RuntimeException("FixBookControl: cannot call bookScanned except in READY state");
 		}	
-		currentBook = library.book(bookId); //Made the first letter to lowercase in the method name. Author: Kasun Amarasinghe & Reviewer: All other members
-		
+		currentBook = library.book(bookId); //Made the first letter to lowercase in the method name - Author: Kasun Amarasinghe 		
 		if (currentBook == null) {
 			currentFixBookUI.display("Invalid bookId");
 			return;
