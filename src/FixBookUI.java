@@ -47,9 +47,10 @@ public class FixBookUI {
 				break;	
 				
 			case FIXING:
-				String userSelectedAnswer = input("Fix Book? (Y/N) : ");
+				String userSelectedAnswer = input("Fix Book? (Y/N) : "); //Changed the varible name "ans" to "userSelectedAnswer" to be meaningfull-Author Kasun Amarasinghe 
 				boolean fix = false;
-				if (userSelectedAnswer.toUpperCase().equals("Y")) {
+				if (userSelectedAnswer.toUpperCase().equals("Y")) //Changed the varible name "ans" to "userSelectedAnswer" to be meaningfull-Author Kasun Amarasinghe 
+				{
 					fix = true;
 				}
 				control.fixBook(fix);
