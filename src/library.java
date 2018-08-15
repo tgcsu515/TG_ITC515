@@ -30,12 +30,12 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 	
 	private Map<Integer, Book> catalog;// Author Amandeep Kaur change the first letter of the class Book from lower to upper case Reviewed By Kasun Amarsinghe
 	private Map<Integer, Member> members;// Author Amandeep Kaur change the first letter of the class Member from lower to upper case Reviewed By Kasun Amarsinghe
-	private Map<Integer, Loan> loans;// Author Amandeep Kaur change the first letter of the class from Loan lower to upper case
-	private Map<Integer, Loan> currentLoans;//  Author Amandeep Kaur change the first letter of the class from  Loan lower to upper case
-	private Map<Integer, Book> damagedBooks;// Author Amandeep Kaur change the first letter of the class from  Book lower to upper case
+	private Map<Integer, Loan> loans;// Author Amandeep Kaur change the first letter of the class from Loan lower to upper case Reviewed By Kasun Amarsinghe
+	private Map<Integer, Loan> currentLoans;//  Author Amandeep Kaur change the first letter of the class from  Loan lower to upper case Reviewed By Kasun Amarsinghe
+	private Map<Integer, Book> damagedBooks;// Author Amandeep Kaur change the first letter of the class from  Book lower to upper case Reviewed By Kasun Amarsinghe
 	
 
-	private Library() { //  Author Amandeep Kaur change the constructor name from lower to upper case
+	private Library() { //  Author Amandeep Kaur change the constructor name from lower to upper case Reviewed By Kasun Amarsinghe
 		catalog = new HashMap<>();
 		members = new HashMap<>();
 		loans = new HashMap<>();
@@ -47,7 +47,7 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 	} 
 
 	
-	public static synchronized Library instance() {		// change the class name from lower to upper case and method name from capital to lower
+	public static synchronized Library instance() {		// author Amandeep Kaur  change the class name from lower to upper case and method name from capital to lower Reviewed By Kasun Amarsinghe
 		if (self == null) {
 			Path path = Paths.get(LIBRARY_FILE);			
 			if (Files.exists(path)) {	
@@ -61,7 +61,7 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 					throw new RuntimeException(e);
 				}
 			}
-			else self = new Library();// change the class name from lower to upper case
+			else self = new Library();//author Amandeep kaur change the class name from lower to upper case Reviewed By Kasun Amarsinghe
 		}
 		return self;
 	}
@@ -82,14 +82,14 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 	}
 
 	
-	public int bookID() // author Amandeep Kaur change the method  first letter capital to lower
+	public int bookID() // author Amandeep Kaur change the method  first letter capital to lower Reviewed By Kasun Amarsinghe
 	{
 		return BID;
 	}
 	
 	
-	public int memberID() //author Amandeep Kaur change the method  first letter capital to lower
-	{
+	public int memberID() //author Amandeep Kaur change the method  first letter capital to lower Reviewed By Kasun Amarsinghe
+	{ 
 		return MID;
 	}
 	
@@ -125,7 +125,7 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 	}
 
 
-	public Member addMember(String lastName, String firstName, String email, int phoneNo) // author Amandeep kaur change the method name and class Member first letter lower to upper
+	public Member addMember(String lastName, String firstName, String email, int phoneNo) // author Amandeep kaur change the method name and class Member first letter lower to upper Reviewed By Kasun Amarsinghe
 	{		
 		Member member = new Member(lastName, firstName, email, phoneNo, nextMID());
 		members.put(member.getId(), member);		
@@ -133,7 +133,7 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 	}
 
 	
-	public Book addBook(String a, String t, String c) // author Amandeep Kaur change the variable  naming convention to camel case
+	public Book addBook(String a, String t, String c) // author Amandeep Kaur change the variable  naming convention to camel case Reviewed By Kasun Amarsinghe
 	{		
 		Book b = new book(a, t, c, nextBID());
 		catalog.put(b.ID(), b);		
@@ -141,7 +141,7 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 	}
 
 	
-	public Member getMember(int memberId) // author Amandeep Kaur change the class name first letter from lower to upper
+	public Member getMember(int memberId) // author Amandeep Kaur change the class name first letter from lower to upper Reviewed By Kasun Amarsinghe
 	{
 		if (members.containsKey(memberId)) 
 			return members.get(memberId);
@@ -149,7 +149,7 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 	}
 
 	
-	public Book book(int bookId) // Author Amandeep Kaur change the first letter of the class Book from lower to upper case and method name from upper to lower
+	public Book book(int bookId) // Author Amandeep Kaur change the first letter of the class Book from lower to upper case and method name from upper to lower Reviewed By Kasun Amarsinghe
 	{
 		if (catalog.containsKey(bookId)) 
 			return catalog.get(bookId);		
@@ -162,7 +162,7 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 	}
 
 	
-	public boolean memberCanBorrow(Member member) // Author Amandeep Kaur change the first letter of the class Member from lower to upper case
+	public boolean memberCanBorrow(Member member) // Author Amandeep Kaur change the first letter of the class Member from lower to upper case Reviewed By Kasun Amarsinghe
 	{		
 		if (member.getNumberOfCurrentLoans() == LOAN_LIMIT ) 
 			return false;
