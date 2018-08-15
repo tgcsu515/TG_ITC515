@@ -133,9 +133,9 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 	}
 
 	
-	public Book addBook(String a, String t, String c) // author Amandeep Kaur change the variable  naming convention to camel case Reviewed By Kasun Amarsinghe
+	public Book addBook(String a, String t, String c) // author Amandeep Kaur change the method name letter  according to the naming convention to camel case Reviewed By Kasun Amarsinghe
 	{		
-		Book b = new book(a, t, c, nextBID());
+		Book b = new Book(a, t, c, nextBID());// author Amandeep Kaur capatalize  the Book class  from lower as reviewed by the Kasun Amarsinghe
 		catalog.put(b.ID(), b);		
 		return b;
 	}
@@ -170,7 +170,7 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 		if (member.getFinesOwed() >= MAX_FINES_OWED) 
 			return false;
 				
-		for (Loan loan : member.getLoans()) // Author Amandeep Kaur change the first letter of the class Loan from lower to upper case
+		for (Loan loan : member.getLoans()) // Author Amandeep Kaur change the first letter of the class Loan from lower to upper case Reviewed By Kasun Amarsinghe
 			if (loan.isOverDue()) 
 				return false;
 			
@@ -178,13 +178,13 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 	}
 
 	
-	public int loansRemainingForMember(Member member) // Author Amandeep Kaur change the first letter of the class Member from lower to upper case
+	public int loansRemainingForMember(Member member) // Author Amandeep Kaur change the first letter of the class Member from lower to upper case Reviewed By Kasun Amarsinghe
 	{		
 		return LOAN_LIMIT - member.getNumberOfCurrentLoans();
 	}
 
 	
-	public Loan issueLoan(Book book, Member member) // Author Amandeep Kaur change the first letter of the class Loan , Book and Member from lower to upper case
+	public Loan issueLoan(Book book, Member member) // Author Amandeep Kaur change the first letter of the class Loan , Book and Member from lower to upper case Reviewed By Kasun Amarsinghe
 	{
 		Date dueDate = Calendar.getInstance().getDueDate(LOAN_PERIOD);
 		Loan loan = new loan(nextLID(), book, member, dueDate);
@@ -196,7 +196,7 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 	}
 	
 	
-	public Loan getLoanByBookId(int bookId) // Author Amandeep Kaur change the first letter of the class  Loan from lower to upper case
+	public Loan getLoanByBookId(int bookId) // Author Amandeep Kaur change the first letter of the class  Loan from lower to upper case Reviewed By Kasun Amarsinghe
 	{
 		if (currentLoans.containsKey(bookId)) {
 			return currentLoans.get(bookId);
