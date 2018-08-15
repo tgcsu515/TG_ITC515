@@ -28,8 +28,8 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 	private int LID;
 	private Date loadDate;
 	
-	private Map<Integer, Book> catalog;// Author Amandeep Kaur change the first letter of the class Book from lower to upper case
-	private Map<Integer, Member> members;// Author Amandeep Kaur change the first letter of the class Member from lower to upper case
+	private Map<Integer, Book> catalog;// Author Amandeep Kaur change the first letter of the class Book from lower to upper case Reviewed By Kasun Amarsinghe
+	private Map<Integer, Member> members;// Author Amandeep Kaur change the first letter of the class Member from lower to upper case Reviewed By Kasun Amarsinghe
 	private Map<Integer, Loan> loans;// Author Amandeep Kaur change the first letter of the class from Loan lower to upper case
 	private Map<Integer, Loan> currentLoans;//  Author Amandeep Kaur change the first letter of the class from  Loan lower to upper case
 	private Map<Integer, Book> damagedBooks;// Author Amandeep Kaur change the first letter of the class from  Book lower to upper case
