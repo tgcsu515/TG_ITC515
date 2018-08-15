@@ -231,18 +231,20 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 			damagedBooks.put(book.ID(), book);
 		}
 		currentLoan.Loan();
-		currentLoans.remove(book.ID());
+		currentLoans.remove(book.ID()); 
 	}
 
 
 	public void checkCurrentLoans() {
-		for (loan loan : currentLoans.values()) {
+		for (Loan loan : currentLoans.values()) //Author Amandeep kaur Capatalize the class name 
+		{
 			loan.checkOverDue();
 		}		
 	}
 
 
-	public void repairBook(book currentBook) {
+	public void repairBook(Book currentBook) //Author Amandeep kaur Capatalize the class name 
+	{
 		if (damagedBooks.containsKey(currentBook.ID())) {
 			currentBook.Repair();
 			damagedBooks.remove(currentBook.ID());
