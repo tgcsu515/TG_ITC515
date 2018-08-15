@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 @SuppressWarnings("serial")
-public class Library implements Serializable { // change the first letter of the class from lower to upper case
+public class Library implements Serializable { //Author Amandeep kaur change the first letter of the class from lower to upper case  Reviewed By Kasun Amarsinghe
 	
 	private static final String LIBRARY_FILE = "library.obj";
 	private static final int LOAN_LIMIT = 2;
@@ -22,7 +22,7 @@ public class Library implements Serializable { // change the first letter of the
 	private static final double MAX_FINES_OWED = 5.0;
 	private static final double DAMAGE_FEE = 2.0;
 	
-	private static Library self; // Author Amandeep Kaur change the first letter of the class from lower to upper case 
+	private static Library self; // Author Amandeep Kaur change the first letter of the class from lower to upper case  Reviewed By Kasun Amarsinghe
 	private int BID;
 	private int MID;
 	private int LID;
