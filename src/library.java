@@ -205,7 +205,8 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 	}
 
 	
-	public double calculateOverDueFine(loan loan) {
+	public double calculateOverDueFine(Loan loan) // Author Amandeep kaur Capatalize the class name 
+	{
 		if (loan.isOverDue()) {
 			long daysOverDue = Calendar.getInstance().getDaysDifference(loan.getDueDate());
 			double fine = daysOverDue * FINE_PER_DAY;
@@ -215,9 +216,10 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 	}
 
 
-	public void dischargeLoan(loan currentLoan, boolean isDamaged) {
-		member member = currentLoan.Member();
-		book book  = currentLoan.Book();
+	public void dischargeLoan(loan currentLoan, boolean isDamaged) // Author Amandeep kaur Capatalize the class name 
+	{
+		Member member = currentLoan.Member();// Author Amandeep kaur Capatalize the class name 
+		Book book  = currentLoan.Book(); // Author Amandeep kaur Capatalize the class name 
 		
 		double overDueFine = calculateOverDueFine(currentLoan);
 		member.addFine(overDueFine);	
