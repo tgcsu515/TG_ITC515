@@ -1,8 +1,8 @@
 public class ReturnBookControl {
 
-	private ReturnBookUI currentReturnBookUI ui;					//Author: Kanchan Bala, Changed variable name from ui to currentReturnBookUI
+	private ReturnBookUI currentReturnBookUI;					//Author: Kanchan Bala, Changed variable name from ui to currentReturnBookUI
 	private enum CONTROL_STATE { INITIALISED, READY, INSPECTING };
-	private CONTROL_STATE state;
+	private CONTROL_STATE currentControlState;			//Author: Kanchan Bala, Changed variable name "state" to "currentControlState"
 	
 	private library library;
 	private loan currentLoan;
