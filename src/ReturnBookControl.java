@@ -1,6 +1,6 @@
 public class ReturnBookControl {
 
-	private ReturnBookUI currentReturnBookUI;					//Author: Kanchan Bala, Changed variable name from ui to currentReturnBookUI
+	private ReturnBookUI currentReturnBookUI;					//Author: Kanchan Bala, Changed variable name from "ui" to "currentReturnBookUI"
 	private enum CONTROL_STATE { INITIALISED, READY, INSPECTING };
 	private CONTROL_STATE currentControlState;			//Author: Kanchan Bala, Changed variable name "state" to "currentControlState"
 	
@@ -31,11 +31,11 @@ public class ReturnBookControl {
 		book currentBook = library.Book(bookId);
 		
 		if (currentBook == null) {
-			currentReturnBookUI.display("Invalid Book Id");				//Author: Kanchan Bala, Updated variable name ui to currentReturnBookUI
+			currentReturnBookUI.display("Invalid Book Id");				//Author: Kanchan Bala, Updated variable name "ui" to "currentReturnBookUI"
 			return;
 		}
 		if (!currentBook.On_loan()) {
-			currentReturnBookUI.display("Book has not been borrowed");	//Author: Kanchan Bala, Updated variable name ui to currentReturnBookUI
+			currentReturnBookUI.display("Book has not been borrowed");	//Author: Kanchan Bala, Updated variable name "ui" to "currentReturnBookUI"
 			return;
 		}		
 		currentLoan = library.getLoanByBookId(bookId);	
@@ -43,12 +43,12 @@ public class ReturnBookControl {
 		if (currentLoan.isOverDue()) {
 			overDueFine = library.calculateOverDueFine(currentLoan);
 		}
-		currentReturnBookUI.display("Inspecting");				//Author: Kanchan Bala, Updated variable name ui to currentReturnBookUI
-		currentReturnBookUI.display(currentBook.toString());	//Author: Kanchan Bala, Updated variable name ui to currentReturnBookUI
-		currentReturnBookUI.display(currentLoan.toString());	//Author: Kanchan Bala, Updated variable name ui to currentReturnBookUI
+		currentReturnBookUI.display("Inspecting");				//Author: Kanchan Bala, Updated variable name "ui" to "currentReturnBookUI"
+		currentReturnBookUI.display(currentBook.toString());	//Author: Kanchan Bala, Updated variable name "ui" to "currentReturnBookUI"
+		currentReturnBookUI.display(currentLoan.toString());	//Author: Kanchan Bala, Updated variable name "ui" to "currentReturnBookUI"
 		
 		if (currentLoan.isOverDue()) {
-			currentReturnBookUI.display(String.format("\nOverdue fine : $%.2f", overDueFine));		//Author: Kanchan Bala, Updated variable name ui to currentReturnBookUI
+			currentReturnBookUI.display(String.format("\nOverdue fine : $%.2f", overDueFine));		//Author: Kanchan Bala, Updated variable name "ui" to "currentReturnBookUI"
 		}
 		currentReturnBookUI.setCurrentControlState(ReturnBookUI.UI_STATE.INSPECTING);		//Author: Kanchan Bala, Updated variable name "ui" to "currentReturnBookUI" and "setState" to "setCurrentControlState"
 		currentControlState = CONTROL_STATE.INSPECTING;						//Author: Kanchan Bala, Updated variable name "state" to "currentControlState"	
@@ -69,7 +69,7 @@ public class ReturnBookControl {
 		}	
 		library.dischargeLoan(currentLoan, isDamaged);
 		currentLoan = null;
-		currentReturnBookUI.setCurrentControlState(ReturnBookUI.UI_STATE.READY);			//Author: Kanchan Bala, Updated variable name ui to currentReturnBookUI
+		currentReturnBookUI.setCurrentControlState(ReturnBookUI.UI_STATE.READY);			//Author: Kanchan Bala, Updated variable name "ui" to "currentReturnBookUI"
 		currentControlState = CONTROL_STATE.READY;							//Author: Kanchan Bala, Updated variable name "state" to "currentControlState"
 	}
 
