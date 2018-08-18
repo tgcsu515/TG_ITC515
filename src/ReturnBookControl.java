@@ -43,9 +43,9 @@ public class ReturnBookControl {
 		if (currentLoan.isOverDue()) {
 			overDueFine = library.calculateOverDueFine(currentLoan);
 		}
-		ui.display("Inspecting");
-		ui.display(currentBook.toString());
-		ui.display(currentLoan.toString());
+		currentReturnBookUI.display("Inspecting");				//Author: Kanchan Bala, Updated variable name ui to currentReturnBookUI
+		currentReturnBookUI.display(currentBook.toString());	//Author: Kanchan Bala, Updated variable name ui to currentReturnBookUI
+		currentReturnBookUI.display(currentLoan.toString());	//Author: Kanchan Bala, Updated variable name ui to currentReturnBookUI
 		
 		if (currentLoan.isOverDue()) {
 			ui.display(String.format("\nOverdue fine : $%.2f", overDueFine));
