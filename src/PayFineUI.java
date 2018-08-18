@@ -36,12 +36,12 @@ public class PayFineUI {
 			case READY:
 				String memStr = input("Swipe member card (press <enter> to cancel): ");
 				if (memStr.length() == 0) {
-					control.cancel();
+					payfineControl.cancel(); //change the variable name control to "payFineControl" as Admin - Arashdeep kaur
 					break;
 				}
 				try {
 					int memberId = Integer.valueOf(memStr).intValue();
-					control.cardSwiped(memberId);
+					payFineControl.cardSwiped(memberId); //change the variable name control to "payFineControl" as Admin - Arashdeep kaur
 				}
 				catch (NumberFormatException e) {
 					output("Invalid memberId");
@@ -52,7 +52,7 @@ public class PayFineUI {
 				double amount = 0;
 				String amtStr = input("Enter amount (<Enter> cancels) : ");
 				if (amtStr.length() == 0) {
-					control.cancel();
+					payFineControl.cancel(); //change the variable name control to "payFineControl" as Admin - Arashdeep kaur
 					break;
 				}
 				try {
@@ -63,7 +63,7 @@ public class PayFineUI {
 					output("Amount must be positive");
 					break;
 				}
-				control.payFine(amount);
+				payFineControl.payFine(amount); //change the variable name control to "payFineControl" as Admin - Arashdeep kaur
 				break;
 								
 			case CANCELLED:
