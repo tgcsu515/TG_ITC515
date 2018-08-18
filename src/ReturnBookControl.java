@@ -67,7 +67,7 @@ public class ReturnBookControl {
 		if (!currentControlState.equals(CONTROL_STATE.INSPECTING)) {		//Author: Kanchan Bala, Updated variable name "state" to "currentControlState"
 			throw new RuntimeException("ReturnBookControl: cannot call dischargeLoan except in INSPECTING state");
 		}	
-		library.dischargeLoan(currentLoan, isDamaged);
+		currentLibrary.dischargeLoan(currentLoan, isDamaged);				//Author: Kanchan Bala, Updated variable name "library" to "currentLibrary"
 		currentLoan = null;
 		currentReturnBookUI.setCurrentControlState(ReturnBookUI.UI_STATE.READY);			//Author: Kanchan Bala, Updated variable name "ui" to "currentReturnBookUI"
 		currentControlState = CONTROL_STATE.READY;							//Author: Kanchan Bala, Updated variable name "state" to "currentControlState"
