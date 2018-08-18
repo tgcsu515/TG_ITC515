@@ -10,12 +10,12 @@ public class ReturnBookControl {
 
 	public ReturnBookControl() {
 		this.library = library.INSTANCE();
-		state = CONTROL_STATE.INITIALISED;
+		currentControlState = CONTROL_STATE.INITIALISED;		//Author: Kanchan Bala, Updated variable name "state" to "currentControlState"
 	}
 	
 	
 	public void setUI(ReturnBookUI currentReturnBookUI) {	//Author: Kanchan Bala, Updated variable name from ui to currentReturnBookUI
-		if (!state.equals(CONTROL_STATE.INITIALISED)) {
+		if (!currentControlState.equals(CONTROL_STATE.INITIALISED)) {		//Author: Kanchan Bala, Updated variable name "state" to "currentControlState"
 			throw new RuntimeException("ReturnBookControl: cannot call setUI except in INITIALISED state");
 		}	
 		this.currentReturnBookUI = currentReturnBookUI;
