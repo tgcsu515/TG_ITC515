@@ -6,16 +6,18 @@ public class PayFineUI {
 
 	public static enum UI_STATE { INITIALISED, READY, PAYING, COMPLETED, CANCELLED };
 
-	private PayFineControl control;
-	private Scanner input;
-	private UI_STATE state;
+	private PayFineControl payFineControl; //change the variable name control to "payFineControl" as Admin - Arashdeep kaur
+	private Scanner input; 
+	private UI_STATE state; 
 
 	
-	public PayFineUI(PayFineControl control) {
-		this.control = control;
+	public PayFineUI(PayFineControl payFineControl) 
+		//change the variable name control to "payFineControl" as Admin - Arashdeep kaur
+	{
+		this.payFineControl = payFineControl;//change the variable name control to "payFineControl" as Admin - Arashdeep kaur
 		input = new Scanner(System.in);
 		state = UI_STATE.INITIALISED;
-		control.setUI(this);
+		payFineControl.setUI(this); //change the variable name control to "payFineControl" as Admin - Arashdeep kaur
 	}
 	
 	
