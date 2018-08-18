@@ -59,7 +59,7 @@ public class ReturnBookControl {
 		if (!currentControlState.equals(CONTROL_STATE.READY)) {				//Author: Kanchan Bala, Updated variable name "state" to "currentControlState"
 			throw new RuntimeException("ReturnBookControl: cannot call scanningComplete except in READY state");
 		}	
-		currentReturnBookUI.setState(ReturnBookUI.UI_STATE.COMPLETED);		//Author: Kanchan Bala, Updated variable name ui to currentReturnBookUI
+		currentReturnBookUI.setCurrentControlState(ReturnBookUI.UI_STATE.COMPLETED);		//Author: Kanchan Bala, Updated variable name "ui" to "currentReturnBookUI" and "setState" to "setCurrentControlState"
 	}
 
 
@@ -69,7 +69,7 @@ public class ReturnBookControl {
 		}	
 		library.dischargeLoan(currentLoan, isDamaged);
 		currentLoan = null;
-		currentReturnBookUI.setState(ReturnBookUI.UI_STATE.READY);			//Author: Kanchan Bala, Updated variable name ui to currentReturnBookUI
+		currentReturnBookUI.setCurrentControlState(ReturnBookUI.UI_STATE.READY);			//Author: Kanchan Bala, Updated variable name ui to currentReturnBookUI
 		currentControlState = CONTROL_STATE.READY;							//Author: Kanchan Bala, Updated variable name "state" to "currentControlState"
 	}
 
