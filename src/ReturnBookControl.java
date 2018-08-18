@@ -1,6 +1,6 @@
 public class ReturnBookControl {
 
-	private ReturnBookUI currentReturnBookUI;					//Author: Kanchan Bala, Changed variable name from ui to currentReturnBookUI
+	private ReturnBookUI currentReturnBookUI ui;					//Author: Kanchan Bala, Changed variable name from ui to currentReturnBookUI
 	private enum CONTROL_STATE { INITIALISED, READY, INSPECTING };
 	private CONTROL_STATE state;
 	
@@ -31,11 +31,11 @@ public class ReturnBookControl {
 		book currentBook = library.Book(bookId);
 		
 		if (currentBook == null) {
-			ui.display("Invalid Book Id");
+			currentReturnBookUI.display("Invalid Book Id");				//Author: Kanchan Bala, Updated variable name ui to currentReturnBookUI
 			return;
 		}
 		if (!currentBook.On_loan()) {
-			ui.display("Book has not been borrowed");
+			currentReturnBookUI.display("Book has not been borrowed");	//Author: Kanchan Bala, Updated variable name ui to currentReturnBookUI
 			return;
 		}		
 		currentLoan = library.getLoanByBookId(bookId);	
