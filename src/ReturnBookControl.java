@@ -1,3 +1,12 @@
+/** Author: Kanchan Bala, Team Name: Team Genius, Student id: 11635336
+ * Reviewer: Amandeep Kaur, Mediator: Kasun Amarasinghe
+ * @version 9.0.4(build 9.0.4+ 11)
+ *
+ * In this program I have made few changes with variable names and class name, the variable names, changed to give the meaningful names as per the "Guidelines
+ * and class name, has been capatalized with first letter. Apart from these changes, I could not find any variable name, class name, indentation etcetra, which 
+ * breach the guidelines.
+ */
+
 public class ReturnBookControl {
 
 	private ReturnBookUI currentReturnBookUI;					//Author: Kanchan Bala, Changed variable name from "ui" to "currentReturnBookUI"
