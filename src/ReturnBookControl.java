@@ -14,7 +14,7 @@ public class ReturnBookControl {
 	}
 	
 	
-	public void setUI(ReturnBookUI currentReturnBookUI) {	//Author: Kanchan Bala, Updated variable name from ui to currentReturnBookUI
+	public void setCurrentReturnBookUI(ReturnBookUI currentReturnBookUI) {	//Author: Kanchan Bala, Updated variable name from "ui" to "currentReturnBookUI" and "setUI" to "setCurrentReturnBookUI"
 		if (!currentControlState.equals(CONTROL_STATE.INITIALISED)) {		//Author: Kanchan Bala, Updated variable name "state" to "currentControlState"
 			throw new RuntimeException("ReturnBookControl: cannot call setUI except in INITIALISED state");
 		}	
