@@ -64,13 +64,13 @@ public class ReturnBookControl {
 
 
 	public void dischargeLoan(boolean isDamaged) {
-		if (!state.equals(CONTROL_STATE.INSPECTING)) {
+		if (!currentControlState.equals(CONTROL_STATE.INSPECTING)) {		//Author: Kanchan Bala, Updated variable name "state" to "currentControlState"
 			throw new RuntimeException("ReturnBookControl: cannot call dischargeLoan except in INSPECTING state");
 		}	
 		library.dischargeLoan(currentLoan, isDamaged);
 		currentLoan = null;
 		currentReturnBookUI.setState(ReturnBookUI.UI_STATE.READY);			//Author: Kanchan Bala, Updated variable name ui to currentReturnBookUI
-		state = CONTROL_STATE.READY;				
+		currentControlState = CONTROL_STATE.READY;							//Author: Kanchan Bala, Updated variable name "state" to "currentControlState"
 	}
 
 
