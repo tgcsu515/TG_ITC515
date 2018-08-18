@@ -19,7 +19,7 @@ public class ReturnBookControl {
 			throw new RuntimeException("ReturnBookControl: cannot call setUI except in INITIALISED state");
 		}	
 		this.currentReturnBookUI = currentReturnBookUI;
-		currentReturnBookUI.setState(ReturnBookUI.UI_STATE.READY); 		//Author: Kanchan Bala, Updated variable name ui to currentReturnBookUI
+		currentReturnBookUI.setCurrentControlState(ReturnBookUI.UI_STATE.READY); 		//Author: Kanchan Bala, Updated variable name "ui" to "currentReturnBookUI" and "setState" to "setCurrentControlState"
 		currentControlState = CONTROL_STATE.READY;						//Author: Kanchan Bala, Updated variable name "state" to "currentControlState"	
 	}
 
