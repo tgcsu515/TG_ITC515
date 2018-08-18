@@ -51,12 +51,12 @@ public class ReturnBookControl {
 			currentReturnBookUI.display(String.format("\nOverdue fine : $%.2f", overDueFine));		//Author: Kanchan Bala, Updated variable name ui to currentReturnBookUI
 		}
 		currentReturnBookUI.setState(ReturnBookUI.UI_STATE.INSPECTING);		//Author: Kanchan Bala, Updated variable name ui to currentReturnBookUI
-		state = CONTROL_STATE.INSPECTING;		
+		currentControlState = CONTROL_STATE.INSPECTING;						//Author: Kanchan Bala, Updated variable name "state" to "currentControlState"	
 	}
 
 
 	public void scanningComplete() {
-		if (!state.equals(CONTROL_STATE.READY)) {
+		if (!currentControlState.equals(CONTROL_STATE.READY)) {				//Author: Kanchan Bala, Updated variable name "state" to "currentControlState"
 			throw new RuntimeException("ReturnBookControl: cannot call scanningComplete except in READY state");
 		}	
 		currentReturnBookUI.setState(ReturnBookUI.UI_STATE.COMPLETED);		//Author: Kanchan Bala, Updated variable name ui to currentReturnBookUI
