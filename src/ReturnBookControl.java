@@ -20,12 +20,12 @@ public class ReturnBookControl {
 		}	
 		this.currentReturnBookUI = currentReturnBookUI;
 		currentReturnBookUI.setState(ReturnBookUI.UI_STATE.READY); 		//Author: Kanchan Bala, Updated variable name ui to currentReturnBookUI
-		state = CONTROL_STATE.READY;		
+		currentControlState = CONTROL_STATE.READY;						//Author: Kanchan Bala, Updated variable name "state" to "currentControlState"	
 	}
 
 
 	public void bookScanned(int bookId) {
-		if (!state.equals(CONTROL_STATE.READY)) {
+		if (!currentControlState.equals(CONTROL_STATE.READY)) {			//Author: Kanchan Bala, Updated variable name "state" to "currentControlState"
 			throw new RuntimeException("ReturnBookControl: cannot call bookScanned except in READY state");
 		}	
 		book currentBook = library.Book(bookId);
