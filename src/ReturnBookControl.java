@@ -28,7 +28,7 @@ public class ReturnBookControl {
 		if (!currentControlState.equals(CONTROL_STATE.READY)) {			//Author: Kanchan Bala, Updated variable name "state" to "currentControlState"
 			throw new RuntimeException("ReturnBookControl: cannot call bookScanned except in READY state");
 		}	
-		book currentBook = library.Book(bookId);
+		book currentBook = currentLibrary.Book(bookId);					//Author: Kanchan Bala, Updated variable name "library" to "currentLibrary"
 		
 		if (currentBook == null) {
 			currentReturnBookUI.display("Invalid Book Id");				//Author: Kanchan Bala, Updated variable name "ui" to "currentReturnBookUI"
@@ -38,10 +38,10 @@ public class ReturnBookControl {
 			currentReturnBookUI.display("Book has not been borrowed");	//Author: Kanchan Bala, Updated variable name "ui" to "currentReturnBookUI"
 			return;
 		}		
-		currentLoan = library.getLoanByBookId(bookId);	
+		currentLoan = currentLibrary.getLoanByBookId(bookId);			//Author: Kanchan Bala, Updated variable name "library" to "currentLibrary"
 		double overDueFine = 0.0;
 		if (currentLoan.isOverDue()) {
-			overDueFine = library.calculateOverDueFine(currentLoan);
+			overDueFine = currentLibrary.calculateOverDueFine(currentLoan);		//Author: Kanchan Bala, Updated variable name "library" to "currentLibrary"
 		}
 		currentReturnBookUI.display("Inspecting");				//Author: Kanchan Bala, Updated variable name "ui" to "currentReturnBookUI"
 		currentReturnBookUI.display(currentBook.toString());	//Author: Kanchan Bala, Updated variable name "ui" to "currentReturnBookUI"
