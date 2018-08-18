@@ -4,12 +4,12 @@ public class ReturnBookControl {
 	private enum CONTROL_STATE { INITIALISED, READY, INSPECTING };
 	private CONTROL_STATE currentControlState;			//Author: Kanchan Bala, Changed variable name "state" to "currentControlState"
 	
-	private Library library;							//Author:Kanchan Bala, update class name "library" to "Library"
+	private Library currentLibrary;							//Author:Kanchan Bala, update class name "library" to "Library" and variable name "library to "currentLibrary"
 	private loan currentLoan;
 	
 
 	public ReturnBookControl() {
-		this.library = Library.INSTANCE();				//Author:Kanchan Bala, update class name "library" to "Library"
+		this.currentLibrary = Library.INSTANCE();				//Author:Kanchan Bala, update class name "library" to "Library" and variable name "this.library" to "this.currentLibrary"
 		currentControlState = CONTROL_STATE.INITIALISED;		//Author: Kanchan Bala, Updated variable name "state" to "currentControlState"
 	}
 	
