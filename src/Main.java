@@ -43,7 +43,7 @@ public class Main {
             dateFormat = new SimpleDateFormat("dd/MM/yyyy"); //Changed the varible name "SDF" to "dateFormat"-Author Kasun Amarasinghe 
 
             //Renamed the varible name "LIB" to "libraryObj" to be meaningful-Author Kasun Amarasinghe
-            for (member m : libraryObj.Members()) {
+            for (Member currentMember : libraryObj.Members()) {// Chaged the first letter to uppercase in Member class name-Author Kasun Amarasinghe
                 output(m);
             }
             output(" ");
@@ -140,7 +140,8 @@ public class Main {
 
     private static void listMembers() {
         output("");
-        for (member member : libraryObj.Members()) { //Renamed the varible name "LIB" to "libraryObj" to be meaningful-Author Kasun Amarasinghe
+		// Chaged the first letter to uppercase in Member class name-Author Kasun Amarasinghe
+        for (Member member : libraryObj.Members()) { //Renamed the varible name "LIB" to "libraryObj" to be meaningful-Author Kasun Amarasinghe
             output(member + "\n");
         }
     }
@@ -186,7 +187,8 @@ public class Main {
             String firstName = input("Enter first name: ");
             String email = input("Enter email: ");
             int phoneNo = Integer.valueOf(input("Enter phone number: ")).intValue();
-            member member = libraryObj.Add_mem(lastName, firstName, email, phoneNo); //Renamed the varible name "LIB" to "libraryObj" to be meaningful-Author Kasun Amarasinghe
+			// Chaged the first letter to uppercase in Member class name-Author Kasun Amarasinghe
+            Member member = libraryObj.Add_mem(lastName, firstName, email, phoneNo); //Renamed the varible name "LIB" to "libraryObj" to be meaningful-Author Kasun Amarasinghe
             output("\n" + member + "\n");
 
         } catch (NumberFormatException e) {
