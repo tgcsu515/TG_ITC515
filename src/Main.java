@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
 	
-	private static Scanner IN;
+	private static Scanner input; //Changed the varible name "IN" to "input" to be meaningful-Author Kasun Amarasinghe 
 	private static Library LIB;
 	private static String MENU;
 	private static Calendar CAL;
@@ -39,7 +39,7 @@ public class Main {
 
 	public static void main(String[] args) {		
 		try {			
-			IN = new Scanner(System.in);
+			input = new Scanner(System.in); //Changed the varible name "IN" to "input" to be meaningful-Author Kasun Amarasinghe
 			LIB = Library.INSTANCE();
 			CAL = Calendar.getInstance();
 			SDF = new SimpleDateFormat("dd/MM/yyyy");
@@ -209,7 +209,7 @@ public class Main {
 
 	private static String input(String prompt) {
 		System.out.print(prompt);
-		return IN.nextLine();
+		return input.nextLine(); //Changed the varible name "IN" to "input" to be meaningful-Author Kasun Amarasinghe
 	}
 	
 	
