@@ -47,7 +47,7 @@ public class Main {
             }
             output(" ");
             //Renamed the varible name "LIB" to "libraryObj" to be meaningful-Author Kasun Amarasinghe
-            for (book b : libraryObj.Books()) {
+            for (Book currentBook : libraryObj.Books()) { // Chaged the first letter to uppercase in Book class name-Author Kasun Amarasinghe
                 output(b);
             }
 
@@ -133,7 +133,8 @@ public class Main {
 
     private static void listBooks() {
         output("");
-        for (book book : libraryObj.Books()) { //Renamed the varible name "LIB" to "libraryObj" to be meaningful-Author Kasun Amarasinghe
+		// Chaged the first letter to uppercase in Book class name-Author Kasun Amarasinghe
+        for (Book book : libraryObj.Books()) { //Renamed the varible name "LIB" to "libraryObj" to be meaningful-Author Kasun Amarasinghe
             output(book + "\n");
         }
     }
@@ -176,7 +177,8 @@ public class Main {
         String author = input("Enter author: ");
         String title = input("Enter title: ");
         String callNo = input("Enter call number: ");
-        book book = libraryObj.Add_book(author, title, callNo); //Renamed the varible name "LIB" to "libraryObj" to be meaningful-Author Kasun Amarasinghe
+		// Chaged the first letter to uppercase in Book class name-Author Kasun Amarasinghe
+        Book book = libraryObj.Add_book(author, title, callNo); //Renamed the varible name "LIB" to "libraryObj" to be meaningful-Author Kasun Amarasinghe
         output("\n" + book + "\n");
 
     }
@@ -194,7 +196,6 @@ public class Main {
         } catch (NumberFormatException e) {
             output("\nInvalid phone number\n");
         }
-
     }
 
     private static String input(String prompt) {
