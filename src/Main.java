@@ -1,4 +1,3 @@
-
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
@@ -126,7 +125,8 @@ public class Main {
 
     private static void listCurrentLoans() {
         output("");
-        for (loan loan : libraryObj.CurrentLoans()) { //Renamed the varible name "LIB" to "libraryObj" to be meaningful-Author Kasun Amarasinghe
+		// Chaged the first letter to uppercase in Loan class name-Author Kasun Amarasinghe
+        for (Loan loan : libraryObj.CurrentLoans()) { //Renamed the varible name "LIB" to "libraryObj" to be meaningful-Author Kasun Amarasinghe
             output(loan + "\n");
         }
     }
