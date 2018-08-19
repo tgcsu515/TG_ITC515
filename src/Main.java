@@ -1,6 +1,12 @@
 import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
+/*The author for the following Main class is Kasun Amarasinghe.
+  Kanchan Bala will review the code updates which were done to this file.
+  Arashdeep Kuar is the mediator for this class file.
+  This class file will be reviewed using the given Code Style Guidelines and necessary code updates will be done by the Author.
+*/
+
 public class Main {
 
     private static Scanner input; //Changed the varible name "IN" to "input" to be meaningful-Author Kasun Amarasinghe 
