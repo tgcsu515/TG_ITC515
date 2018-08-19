@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main {
 	
 	private static Scanner input; //Changed the varible name "IN" to "input" to be meaningful-Author Kasun Amarasinghe 
-	private static Library LIB;
+	private static Library libraryObj; //Renamed the varible name "LIB" to "libraryObj" to be meaningful-Author Kasun Amarasinghe
 	private static String MENU;
 	private static Calendar CAL;
 	private static SimpleDateFormat SDF;
@@ -40,15 +40,17 @@ public class Main {
 	public static void main(String[] args) {		
 		try {			
 			input = new Scanner(System.in); //Changed the varible name "IN" to "input" to be meaningful-Author Kasun Amarasinghe
-			LIB = Library.INSTANCE();
+			libraryObj = Library.INSTANCE(); //Renamed the varible name "LIB" to "libraryObj" to be meaningful-Author Kasun Amarasinghe
 			CAL = Calendar.getInstance();
 			SDF = new SimpleDateFormat("dd/MM/yyyy");
-	
-			for (member m : LIB.Members()) {
+			
+			//Renamed the varible name "LIB" to "libraryObj" to be meaningful-Author Kasun Amarasinghe
+			for (member m : libraryObj.Members()) {
 				output(m);
 			}
 			output(" ");
-			for (book b : LIB.Books()) {
+			//Renamed the varible name "LIB" to "libraryObj" to be meaningful-Author Kasun Amarasinghe
+			for (book b : libraryObj.Books()) {
 				output(b);
 			}
 						
@@ -127,7 +129,7 @@ public class Main {
 
 	private static void listCurrentLoans() {
 		output("");
-		for (loan loan : LIB.CurrentLoans()) {
+		for (loan loan : libraryObj.CurrentLoans()) { //Renamed the varible name "LIB" to "libraryObj" to be meaningful-Author Kasun Amarasinghe
 			output(loan + "\n");
 		}		
 	}
@@ -136,7 +138,7 @@ public class Main {
 
 	private static void listBooks() {
 		output("");
-		for (book book : LIB.Books()) {
+		for (book book : libraryObj.Books()) { //Renamed the varible name "LIB" to "libraryObj" to be meaningful-Author Kasun Amarasinghe
 			output(book + "\n");
 		}		
 	}
@@ -145,7 +147,7 @@ public class Main {
 
 	private static void listMembers() {
 		output("");
-		for (member member : LIB.Members()) {
+		for (member member : libraryObj.Members()) { //Renamed the varible name "LIB" to "libraryObj" to be meaningful-Author Kasun Amarasinghe
 			output(member + "\n");
 		}		
 	}
@@ -171,7 +173,7 @@ public class Main {
 		try {
 			int days = Integer.valueOf(input("Enter number of days: ")).intValue();
 			CAL.incrementDate(days);
-			LIB.checkCurrentLoans();
+			libraryObj.checkCurrentLoans(); //Renamed the varible name "LIB" to "libraryObj" to be meaningful-Author Kasun Amarasinghe
 			output(SDF.format(CAL.Date()));
 			
 		} catch (NumberFormatException e) {
@@ -185,7 +187,7 @@ public class Main {
 		String author = input("Enter author: ");
 		String title  = input("Enter title: ");
 		String callNo = input("Enter call number: ");
-		book book = LIB.Add_book(author, title, callNo);
+		book book = libraryObj.Add_book(author, title, callNo); //Renamed the varible name "LIB" to "libraryObj" to be meaningful-Author Kasun Amarasinghe
 		output("\n" + book + "\n");
 		
 	}
@@ -197,7 +199,7 @@ public class Main {
 			String firstName  = input("Enter first name: ");
 			String email = input("Enter email: ");
 			int phoneNo = Integer.valueOf(input("Enter phone number: ")).intValue();
-			member member = LIB.Add_mem(lastName, firstName, email, phoneNo);
+			member member = libraryObj.Add_mem(lastName, firstName, email, phoneNo); //Renamed the varible name "LIB" to "libraryObj" to be meaningful-Author Kasun Amarasinghe
 			output("\n" + member + "\n");
 			
 		} catch (NumberFormatException e) {
