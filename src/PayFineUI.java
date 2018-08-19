@@ -36,13 +36,14 @@ public class PayFineUI {
 			{
 			
 			case READY:
-				String memStr = input("Swipe member card (press <enter> to cancel): ");
-				if (memStr.length() == 0) {
+				String memberCard = input("Swipe member card (press <enter> to cancel): "); //change the variable name "memstr" to "memberCard" as Admin - Arashdeep Kaur
+				if (memberCard.length() == 0) //change the variable name "memstr" to "memberCard" as Admin - Arashdeep Kaur
+				{
 					payfineControl.cancel(); //change the variable name control to "payFineControl" as Admin - Arashdeep kaur
 					break;
 				}
 				try {
-					int memberId = Integer.valueOf(memStr).intValue();
+					int memberId = Integer.valueOf(memberCard).intValue(); //change the variable name "memstr" to "memberCard" as Admin - Arashdeep Kaur
 					payFineControl.cardSwiped(memberId); //change the variable name control to "payFineControl" as Admin - Arashdeep kaur
 				}
 				catch (NumberFormatException e) {
