@@ -53,13 +53,14 @@ public class PayFineUI {
 				
 			case PAYING:
 				double amount = 0;
-				String amtStr = input("Enter amount (<Enter> cancels) : ");
-				if (amtStr.length() == 0) {
+				String amountDue = input("Enter amount (<Enter> cancels) : "); //change the variable name "amtStr" to "amountDue" as Admin - Arashdeep Kaur
+				if (amountDue.length() == 0) //change the variable name "amtStr" to "amountDue" as Admin - Arashdeep Kaur
+				{
 					payFineControl.cancel(); //change the variable name control to "payFineControl" as Admin - Arashdeep kaur
 					break;
 				}
 				try {
-					amount = Double.valueOf(amtStr).doubleValue();
+					amount = Double.valueOf(amountDue).doubleValue(); //change the variable name "amtStr" to "amountDue" as Admin - Arashdeep Kaur
 				}
 				catch (NumberFormatException e) {}
 				if (amount <= 0) {
@@ -79,7 +80,7 @@ public class PayFineUI {
 			
 			default:
 				output("Unhandled state");
-				throw new RuntimeException("FixBookUI : unhandled state :" + state);			
+				throw new RuntimeException("FixBookUI : unhandled state :" + payFineUiState); //Change variable name "state" to "payFineUiState" as Admin Arashdeep Kaur			
 			
 			}		
 		}		
