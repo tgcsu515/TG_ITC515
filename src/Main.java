@@ -6,7 +6,7 @@ public class Main {
 	
 	private static Scanner input; //Changed the varible name "IN" to "input" to be meaningful-Author Kasun Amarasinghe 
 	private static Library libraryObj; //Renamed the varible name "LIB" to "libraryObj" to be meaningful-Author Kasun Amarasinghe
-	private static String MENU;
+	private static String mainMenu; //Updated the varible name "MENU" to "mainMenu"-Author Kasun Amarasinghe
 	private static Calendar CAL;
 	private static SimpleDateFormat SDF;
 	
@@ -54,14 +54,14 @@ public class Main {
 				output(b);
 			}
 						
-			MENU = Get_menu();
+			mainMenu = Get_menu(); //Updated the varible name "MENU" to "mainMenu"-Author Kasun Amarasinghe
 			
 			boolean e = false;
 			
 			while (!e) {
 				
 				output("\n" + SDF.format(CAL.Date()));
-				String c = input(MENU);
+				String c = input(mainMenu); //Updated the varible name "MENU" to "mainMenu"-Author Kasun Amarasinghe
 				
 				switch (c.toUpperCase()) {
 				
