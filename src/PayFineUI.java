@@ -21,9 +21,9 @@ public class PayFineUI {
 	}
 	
 	
-	public void setState(PAY_FINE_UI_STATE state) //Change the variable name from "UI_STATE" to "PAY_FINE_UI_STATE" as Admin - Arashdeep kaur
+	public void setState(PAY_FINE_UI_STATE payFineUiState) //Change the variable name from "UI_STATE" to "PAY_FINE_UI_STATE" and "state" to "payFineUiState" as Admin - Arashdeep kaur
 	{
-		this.state = state;
+		this.payFineUiState = payFineUiState; //Change variable name "state" to "payFineUiState" as Admin Arashdeep Kaur
 	}
 
 
@@ -32,7 +32,8 @@ public class PayFineUI {
 		
 		while (true) {
 			
-			switch (state) {
+			switch (payFineUiState) //Change variable name "state" to "payFineUiState" as Admin Arashdeep Kaur
+			{
 			
 			case READY:
 				String memStr = input("Swipe member card (press <enter> to cancel): ");
