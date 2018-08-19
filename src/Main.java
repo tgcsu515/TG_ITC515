@@ -7,7 +7,7 @@ public class Main {
 	private static Scanner input; //Changed the varible name "IN" to "input" to be meaningful-Author Kasun Amarasinghe 
 	private static Library libraryObj; //Renamed the varible name "LIB" to "libraryObj" to be meaningful-Author Kasun Amarasinghe
 	private static String mainMenu; //Updated the varible name "MENU" to "mainMenu"-Author Kasun Amarasinghe
-	private static Calendar CAL;
+	private static Calendar calendarObj; //Renamed the varible name "CAL" to "calendarObj" to be meaningful-Author Kasun Amarasinghe
 	private static SimpleDateFormat SDF;
 	
 	
@@ -41,7 +41,7 @@ public class Main {
 		try {			
 			input = new Scanner(System.in); //Changed the varible name "IN" to "input" to be meaningful-Author Kasun Amarasinghe
 			libraryObj = Library.INSTANCE(); //Renamed the varible name "LIB" to "libraryObj" to be meaningful-Author Kasun Amarasinghe
-			CAL = Calendar.getInstance();
+			calendarObj = Calendar.getInstance(); //Renamed the varible name "CAL" to "calendarObj" to be meaningful-Author Kasun Amarasinghe
 			SDF = new SimpleDateFormat("dd/MM/yyyy");
 			
 			//Renamed the varible name "LIB" to "libraryObj" to be meaningful-Author Kasun Amarasinghe
@@ -60,7 +60,7 @@ public class Main {
 			
 			while (!e) {
 				
-				output("\n" + SDF.format(CAL.Date()));
+				output("\n" + SDF.format(calendarObj.Date())); //Renamed the varible name "CAL" to "calendarObj" to be meaningful-Author Kasun Amarasinghe
 				String c = input(mainMenu); //Updated the varible name "MENU" to "mainMenu"-Author Kasun Amarasinghe
 				
 				switch (c.toUpperCase()) {
@@ -172,9 +172,9 @@ public class Main {
 	private static void incrementDate() {
 		try {
 			int days = Integer.valueOf(input("Enter number of days: ")).intValue();
-			CAL.incrementDate(days);
+			calendarObj.incrementDate(days); //Renamed the varible name "CAL" to "calendarObj" to be meaningful-Author Kasun Amarasinghe
 			libraryObj.checkCurrentLoans(); //Renamed the varible name "LIB" to "libraryObj" to be meaningful-Author Kasun Amarasinghe
-			output(SDF.format(CAL.Date()));
+			output(SDF.format(calendarObj.Date())); //Renamed the varible name "CAL" to "calendarObj" to be meaningful-Author Kasun Amarasinghe
 			
 		} catch (NumberFormatException e) {
 			 output("\nInvalid number of days\n");
