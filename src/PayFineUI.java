@@ -4,23 +4,26 @@ import java.util.Scanner;
 public class PayFineUI {
 
 
-	public static enum UI_STATE { INITIALISED, READY, PAYING, COMPLETED, CANCELLED };
+	public static enum PAY_FINE_UI_STATE { INITIALISED, READY, PAYING, COMPLETED, CANCELLED }; //Change the variable name from "UI_STATE" to "PAY_FINE_UI_STATE" as Admin - Arashdeep kaur
 
-	private PayFineControl control;
-	private Scanner input;
-	private UI_STATE state;
+	private PayFineControl payFineControl; //change the variable name "control" to "payFineControl" as Admin - Arashdeep kaur
+	private Scanner input; 
+	private PAY_FINE_UI_STATE state; //Change the variable name from "UI_STATE" to "PAY_FINE_UI_STATE" as Admin - Arashdeep kaur
 
 	
-	public PayFineUI(PayFineControl control) {
-		this.control = control;
+	public PayFineUI(PayFineControl payFineControl) 
+		//change the variable name control to "payFineControl" as Admin - Arashdeep kaur
+	{
+		this.payFineControl = payFineControl;//change the variable name control to "payFineControl" as Admin - Arashdeep kaur
 		input = new Scanner(System.in);
-		state = UI_STATE.INITIALISED;
-		control.setUI(this);
+		state = PAY_FINE_UI_STATE.INITIALISED; //Change the variable name from "UI_STATE" to "PAY_FINE_UI_STATE" as Admin - Arashdeep kaur
+		payFineControl.setUI(this); //change the variable name control to "payFineControl" as Admin - Arashdeep kaur
 	}
 	
 	
-	public void setState(UI_STATE state) {
-		this.state = state;
+	public void setState(PAY_FINE_UI_STATE payFineUiState) //Change the variable name from "UI_STATE" to "PAY_FINE_UI_STATE" and "state" to "payFineUiState" as Admin - Arashdeep kaur
+	{
+		this.payFineUiState = payFineUiState; //Change variable name "state" to "payFineUiState" as Admin Arashdeep Kaur
 	}
 
 
@@ -29,17 +32,19 @@ public class PayFineUI {
 		
 		while (true) {
 			
-			switch (state) {
+			switch (payFineUiState) //Change variable name "state" to "payFineUiState" as Admin Arashdeep Kaur
+			{
 			
 			case READY:
-				String memStr = input("Swipe member card (press <enter> to cancel): ");
-				if (memStr.length() == 0) {
-					control.cancel();
+				String memberCard = input("Swipe member card (press <enter> to cancel): "); //change the variable name "memstr" to "memberCard" as Admin - Arashdeep Kaur
+				if (memberCard.length() == 0) //change the variable name "memstr" to "memberCard" as Admin - Arashdeep Kaur
+				{
+					payfineControl.cancel(); //change the variable name control to "payFineControl" as Admin - Arashdeep kaur
 					break;
 				}
 				try {
-					int memberId = Integer.valueOf(memStr).intValue();
-					control.cardSwiped(memberId);
+					int memberId = Integer.valueOf(memberCard).intValue(); //change the variable name "memstr" to "memberCard" as Admin - Arashdeep Kaur
+					payFineControl.cardSwiped(memberId); //change the variable name control to "payFineControl" as Admin - Arashdeep kaur
 				}
 				catch (NumberFormatException e) {
 					output("Invalid memberId");
@@ -48,20 +53,21 @@ public class PayFineUI {
 				
 			case PAYING:
 				double amount = 0;
-				String amtStr = input("Enter amount (<Enter> cancels) : ");
-				if (amtStr.length() == 0) {
-					control.cancel();
+				String amountDue = input("Enter amount (<Enter> cancels) : "); //change the variable name "amtStr" to "amountDue" as Admin - Arashdeep Kaur
+				if (amountDue.length() == 0) //change the variable name "amtStr" to "amountDue" as Admin - Arashdeep Kaur
+				{
+					payFineControl.cancel(); //change the variable name control to "payFineControl" as Admin - Arashdeep kaur
 					break;
 				}
 				try {
-					amount = Double.valueOf(amtStr).doubleValue();
+					amount = Double.valueOf(amountDue).doubleValue(); //change the variable name "amtStr" to "amountDue" as Admin - Arashdeep Kaur
 				}
 				catch (NumberFormatException e) {}
 				if (amount <= 0) {
 					output("Amount must be positive");
 					break;
 				}
-				control.payFine(amount);
+				payFineControl.payFine(amount); //change the variable name control to "payFineControl" as Admin - Arashdeep kaur
 				break;
 								
 			case CANCELLED:
@@ -74,7 +80,7 @@ public class PayFineUI {
 			
 			default:
 				output("Unhandled state");
-				throw new RuntimeException("FixBookUI : unhandled state :" + state);			
+				throw new RuntimeException("FixBookUI : unhandled state :" + payFineUiState); //Change variable name "state" to "payFineUiState" as Admin Arashdeep Kaur			
 			
 			}		
 		}		
