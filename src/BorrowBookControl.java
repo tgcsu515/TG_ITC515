@@ -3,114 +3,114 @@ import java.util.List;
 
 public class BorrowBookControl {
 	
-	private BorrowBookUI ui;
+	private BorrowBookUI borrowBookUi;  //Change the variable name from "UI" to "borrowBookUi" - BY GURPREET GILL
 	
-	private library L;
-	private member M;
-	private enum CONTROL_STATE { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED };
-	private CONTROL_STATE state;
+	private Library library; //Change the variable name from "L" to "library" - BY GURPREET GILL
+	private Member member; //Change the variable name from "M", "member" to "member(object name)", "Member(class name)" - BY GURPREET GILL
+	private enum BORROW_BOOK_CONTROL_STATE { INITIALISED, READY, RESTRICTED, SCANNING, IDENTIFIED, FINALISING, COMPLETED, CANCELLED }; //Change the variable name from "CONTROL_STATE" to "BORROW_BOOK_CONTROL_STATE" - BY GURPREET GILL
+	private BORROW_BOOK_CONTROL_STATE borrowBookControlState; //Change the variable name from "CONTROL_STATE" to "BORROW_BOOK_CONTROL_STATE" - BY GURPREET GILL
 	
-	private List<book> PENDING;
-	private List<loan> COMPLETED;
-	private book B;
+	private List<Book> PENDING; //Change the class name from "book" to "Book" - BY GURPREET GILL
+	private List<Loan> COMPLETED; //Change the class name from "loan" to "Loan" - BY GURPREET GILL
+	private Book book; //Change the object name from "B" to "book" - BY GURPREET GILL
 	
 	
-	public BorrowBookControl() {
-		this.L = L.INSTANCE();
-		state = CONTROL_STATE.INITIALISED;
+	public borrowBookControl() { //Change the object name from "BorrowBookControl" to "borrowBookControl" - BY GURPREET GILL
+		this.library = library.INSTANCE(); //Change the object name from "L" to "library" - BY GURPREET GILL
+		borrowBookControlState = BORROW_BOOK_CONTROL_STATE.INITIALISED; //Change the object name from "state" to "borrowBookControlState" - BY GURPREET GILL
 	}
 	
 
-	public void setUI(BorrowBookUI ui) {
-		if (!state.equals(CONTROL_STATE.INITIALISED)) 
+	public void setBorrowBookUI(BorrowBookUI borrowBookUi) {  //Change the variable name from "UI", "setUI" to "borrowBookUi", "setBorrowBookUI" - BY GURPREET GILL
+		if (!borrowBookControlState.equals(BORROW_BOOK_CONTROL_STATE.INITIALISED))  //Change the variable name from "CONTROL_STATE" to "BORROW_BOOK_CONTROL_STATE" - BY GURPREET GILL
 			throw new RuntimeException("BorrowBookControl: cannot call setUI except in INITIALISED state");
 			
-		this.ui = ui;
-		ui.setState(BorrowBookUI.UI_STATE.READY);
-		state = CONTROL_STATE.READY;		
+		this.borrowBookUi = borrowBookUi;  //Change the variable name from "UI" to "borrowBookUi" - BY GURPREET GILL
+		borrowBookUi.setBorrowBookControlState(BorrowBookUI.BORROW_BOOK_UI_STATE.READY);  //Change the variable name from "setState" to "setBorrowBookControlState" - BY GURPREET GILL
+		borrowBookControlState = BORROW_BOOK_CONTROL_STATE.READY;  //Change the variable name from "CONTROL_STATE" to "BORROW_BOOK_CONTROL_STATE" - BY GURPREET GILL
 	}
 
 		
-	public void Swiped(int memberId) {
-		if (!state.equals(CONTROL_STATE.READY)) 
+	public void swiped(int memberId) {  //Change the method name from "Swiped" to "swiped" - BY GURPREET GILL
+		if (!borrowBookControlState.equals(BORROW_BOOK_CONTROL_STATE.READY))   //Change the variable name from "state" to "borrowBookControlState" - BY GURPREET GILL
 			throw new RuntimeException("BorrowBookControl: cannot call cardSwiped except in READY state");
 			
-		M = L.getMember(memberId);
-		if (M == null) {
-			ui.display("Invalid memberId");
+		member = library.getMember(memberId);  //Change the variable name from "M", "L" to "member", "library" - BY GURPREET GILL
+		if (member == null) {  //Change the variable name from "M" to "member" - BY GURPREET GILL
+			borrowBookUi.display("Invalid memberId");  //Change the variable name from "UI" to "borrowBookUi" - BY GURPREET GILL
 			return;
 		}
-		if (L.memberCanBorrow(M)) {
+		if (library.memberCanBorrow(member)) {  //Change the variable name from "L" to "library" - BY GURPREET GILL
 			PENDING = new ArrayList<>();
-			ui.setState(BorrowBookUI.UI_STATE.SCANNING);
-			state = CONTROL_STATE.SCANNING; }
+			borrowBookUi.setBorrowBookControlState(BorrowBookUI.BORROW_BOOK_UI_STATE.SCANNING);  //Change the variable name from "setState" to "setBorrowBookControlState" - BY GURPREET GILL
+			borrowBookControlState = BORROW_BOOK_CONTROL_STATE.SCANNING; }  //Change the variable name from "state" to "borrowBookControlState" - BY GURPREET GILL
 		else 
 		{
-			ui.display("Member cannot borrow at this time");
-			ui.setState(BorrowBookUI.UI_STATE.RESTRICTED); }}
+			borrowBookUi.display("Member cannot borrow at this time");  //Change the variable name from "UI" to "borrowBookUi" - BY GURPREET GILL
+			borrowBookUi.setBorrowBookControlState(BorrowBookUI.BORROW_BOOK_UI_STATE.RESTRICTED); }}  //Change the variable name from "setState" to "setBorrowBookControlState" - BY GURPREET GILL
 	
 	
 	public void Scanned(int bookId) {
-		B = null;
-		if (!state.equals(CONTROL_STATE.SCANNING)) {
+		book = null;  //Change the variable name from "B" to "book" - BY GURPREET GILL
+		if (!borrowBookControlState.equals(BORROW_BOOK_CONTROL_STATE.SCANNING)) {  //Change the variable name from "state" to "borrowBookControlState" - BY GURPREET GILL
 			throw new RuntimeException("BorrowBookControl: cannot call bookScanned except in SCANNING state");
 		}	
-		B = L.Book(bookId);
-		if (B == null) {
-			ui.display("Invalid bookId");
+		book = library.Book(bookId);  //Change the variable name from "L" to "library" - BY GURPREET GILL
+		if (book == null) {  //Change the variable name from "B" to "book" - BY GURPREET GILL
+			borrowBookUi.display("Invalid bookId");  //Change the variable name from "UI" to "borrowBookUi" - BY GURPREET GILL
 			return;
 		}
-		if (!B.Available()) {
-			ui.display("Book cannot be borrowed");
+		if (!book.Available()) {  //Change the variable name from "B" to "book" - BY GURPREET GILL
+			borrowBookUi.display("Book cannot be borrowed");  //Change the variable name from "UI" to "borrowBookUi" - BY GURPREET GILL
 			return;
 		}
-		PENDING.add(B);
-		for (book B : PENDING) {
-			ui.display(B.toString());
+		PENDING.add(book);  //Change the variable name from "B" to "book" - BY GURPREET GILL
+		for (Book book : PENDING) {  //Change the variable name from "B" to "book" - BY GURPREET GILL
+			borrowBookUi.display(book.toString());  //Change the variable name from "UI" to "borrowBookUi" - BY GURPREET GILL
 		}
-		if (L.loansRemainingForMember(M) - PENDING.size() == 0) {
-			ui.display("Loan limit reached");
+		if (library.loansRemainingForMember(member) - PENDING.size() == 0) {  //Change the variable name from "L" to "library" - BY GURPREET GILL
+			borrowBookUi.display("Loan limit reached");  //Change the variable name from "UI" to "borrowBookUi" - BY GURPREET GILL
 			Complete();
 		}
 	}
 	
 	
-	public void Complete() {
+	public void complete() {  //Change the method name from "Complete" to "complete" - BY GURPREET GILL
 		if (PENDING.size() == 0) {
 			cancel();
 		}
 		else {
-			ui.display("\nFinal Borrowing List");
-			for (book b : PENDING) {
-				ui.display(b.toString());
+			borrowBookUi.display("\nFinal Borrowing List");  //Change the variable name from "UI" to "borrowBookUi" - BY GURPREET GILL
+			for (Book book : PENDING) {  //Change the variable name from "book b" to "Book book" - BY GURPREET GILL
+				borrowBookUi.display(book.toString());  //Change the variable name from "B" to "book" - BY GURPREET GILL
 			}
-			COMPLETED = new ArrayList<loan>();
-			ui.setState(BorrowBookUI.UI_STATE.FINALISING);
-			state = CONTROL_STATE.FINALISING;
+			COMPLETED = new ArrayList<Loan>();  //Change the variable name from "loan" to "Loan" - BY GURPREET GILL
+			borrowBookUi.setBorrowBookControlState(BorrowBookUI.BORROW_BOOK_UI_STATE.FINALISING);  //Change the variable name from "UI" to "borrowBookUi" - BY GURPREET GILL
+			borrowBookControlState = BORROW_BOOK_CONTROL_STATE.FINALISING;  //Change the variable name from "UI" to "borrowBookUi" - BY GURPREET GILL
 		}
 	}
 
 
 	public void commitLoans() {
-		if (!state.equals(CONTROL_STATE.FINALISING)) {
+		if (!borrowBookControlState.equals(BORROW_BOOK_CONTROL_STATE.FINALISING)) {  //Change the variable name from "CONTROL_STATE" to "BORROW_BOOK_CONTROL_STATE" - BY GURPREET GILL
 			throw new RuntimeException("BorrowBookControl: cannot call commitLoans except in FINALISING state");
 		}	
-		for (book b : PENDING) {
-			loan loan = L.issueLoan(b, M);
-			COMPLETED.add(loan);			
+		for (Book book : PENDING) {  //Change the variable name from "book b" to "Book book" - BY GURPREET GILL
+			Loan loan = loan.issueLoan(book, member);  //Change the variable name from "loan l" to "Loan loan" - BY GURPREET GILL
+			COMPLETED.add(Loan);  //Change the variable name from "loan" to "Loan" - BY GURPREET GILL
 		}
-		ui.display("Completed Loan Slip");
-		for (loan loan : COMPLETED) {
-			ui.display(loan.toString());
+		borrowBookUi.display("Completed Loan Slip");  //Change the variable name from "UI" to "borrowBookUi" - BY GURPREET GILL
+		for (Loan loan : COMPLETED) {  //Change the variable name from "loan loan" to "Loan loan" - BY GURPREET GILL
+			borrowBookUi.display(Loan.toString());  //Change the variable name from "UI" to "borrowBookUi" - BY GURPREET GILL
 		}
-		ui.setState(BorrowBookUI.UI_STATE.COMPLETED);
-		state = CONTROL_STATE.COMPLETED;
+		borrowBookUi.setBorrowBookControlState(BorrowBookUI.BORROW_BOOK_UI_STATE.COMPLETED);  //Change the variable name from "UI" to "borrowBookUi" - BY GURPREET GILL
+		borrowBookControlState = BORROW_BOOK_CONTROL_STATE.COMPLETED;  //Change the variable name from "UI" to "borrowBookUi" - BY GURPREET GILL
 	}
 
 	
 	public void cancel() {
-		ui.setState(BorrowBookUI.UI_STATE.CANCELLED);
-		state = CONTROL_STATE.CANCELLED;
+		borrowBookUi.setBorrowBookControlState(BorrowBookUI.BORROW_BOOK_UI_STATE.CANCELLED);  //Change the variable name from "UI" to "borrowBookUi" - BY GURPREET GILL
+		borrowBookControlState = BORROW_BOOK_CONTROL_STATE.CANCELLED;  //Change the variable name from "state" to "borrowBookControlState" - BY GURPREET GILL
 	}
 	
 	

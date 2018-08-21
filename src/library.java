@@ -1,3 +1,10 @@
+
+/* 
+The author for the Library.java class is Amandeep kaur
+The other members of the team will review the code updates which were done by the author to this file
+The mediator for the Library.java file is Kanchan Bala
+This class file will be reviewed according to the code style guidelines and necessary updation to the code  will be done by the author Amandeep Kaur
+   */ 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
@@ -13,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 @SuppressWarnings("serial")
-public class library implements Serializable {
+public class Library implements Serializable { //Author Amandeep kaur change the first letter of the class from lower to upper case  Reviewed By Kasun Amarsinghe
 	
 	private static final String LIBRARY_FILE = "library.obj";
 	private static final int LOAN_LIMIT = 2;
@@ -22,32 +29,32 @@ public class library implements Serializable {
 	private static final double MAX_FINES_OWED = 5.0;
 	private static final double DAMAGE_FEE = 2.0;
 	
-	private static library self;
+	private static Library self; // Author Amandeep Kaur change the first letter of the class from lower to upper case  Reviewed By Kasun Amarsinghe
 	private int BID;
 	private int MID;
 	private int LID;
 	private Date loadDate;
 	
-	private Map<Integer, book> catalog;
-	private Map<Integer, member> members;
-	private Map<Integer, loan> loans;
-	private Map<Integer, loan> currentLoans;
-	private Map<Integer, book> damagedBooks;
+	private Map<Integer, Book> catalog;// Author Amandeep Kaur change the first letter of the class Book from lower to upper case Reviewed By Kasun Amarsinghe
+	private Map<Integer, Member> members;// Author Amandeep Kaur change the first letter of the class Member from lower to upper case Reviewed By Kasun Amarsinghe
+	private Map<Integer, Loan> loans;// Author Amandeep Kaur change the first letter of the class from Loan lower to upper case Reviewed By Kasun Amarsinghe
+	private Map<Integer, Loan> currentLoans;//  Author Amandeep Kaur change the first letter of the class from  Loan lower to upper case Reviewed By Kasun Amarsinghe
+	private Map<Integer, Book> damagedBooks;// Author Amandeep Kaur change the first letter of the class from  Book lower to upper case Reviewed By Kasun Amarsinghe
 	
 
-	private library() {
+	private Library() { //  Author Amandeep Kaur change the constructor name from lower to upper case Reviewed By Kasun Amarsinghe
 		catalog = new HashMap<>();
 		members = new HashMap<>();
 		loans = new HashMap<>();
 		currentLoans = new HashMap<>();
 		damagedBooks = new HashMap<>();
 		BID = 1;
-		MID = 1;		
+		MID = 1;	
 		LID = 1;		
-	}
+	} 
 
 	
-	public static synchronized library INSTANCE() {		
+	public static synchronized Library instance() {		// author Amandeep Kaur  change the class name from lower to upper case and method name from capital to lower Reviewed By Kasun Amarsinghe
 		if (self == null) {
 			Path path = Paths.get(LIBRARY_FILE);			
 			if (Files.exists(path)) {	
@@ -61,7 +68,7 @@ public class library implements Serializable {
 					throw new RuntimeException(e);
 				}
 			}
-			else self = new library();
+			else self = new Library();//author Amandeep kaur change the class name from lower to upper case Reviewed By Kasun Amarsinghe
 		}
 		return self;
 	}
@@ -82,17 +89,20 @@ public class library implements Serializable {
 	}
 
 	
-	public int BookID() {
+	public int bookID() // author Amandeep Kaur change the method  first letter capital to lower Reviewed By Kasun Amarsinghe
+	{
 		return BID;
 	}
 	
 	
-	public int MemberID() {
+	public int memberID() //author Amandeep Kaur change the method  first letter capital to lower Reviewed By Kasun Amarsinghe
+	{ 
 		return MID;
 	}
 	
 	
-	private int nextBID() {
+	private int nextBID() 
+	{
 		return BID++;
 	}
 
@@ -122,28 +132,32 @@ public class library implements Serializable {
 	}
 
 
-	public member Add_mem(String lastName, String firstName, String email, int phoneNo) {		
-		member member = new member(lastName, firstName, email, phoneNo, nextMID());
+	public Member addMember(String lastName, String firstName, String email, int phoneNo) // author Amandeep kaur change the method name and class Member first letter lower to upper Reviewed By Kasun Amarsinghe
+	{		
+		Member member = new Member(lastName, firstName, email, phoneNo, nextMID());
 		members.put(member.getId(), member);		
 		return member;
 	}
 
 	
-	public book Add_book(String a, String t, String c) {		
-		book b = new book(a, t, c, nextBID());
+	public Book addBook(String a, String t, String c) // author Amandeep Kaur change the method name letter  according to the naming convention to camel case Reviewed By Kasun Amarsinghe
+	{		
+		Book b = new Book(a, t, c, nextBID());// author Amandeep Kaur capatalize  the Book class  from lower as reviewed by the Kasun Amarsinghe
 		catalog.put(b.ID(), b);		
 		return b;
 	}
 
 	
-	public member getMember(int memberId) {
+	public Member getMember(int memberId) // author Amandeep Kaur change the class name first letter from lower to upper Reviewed By Kasun Amarsinghe
+	{
 		if (members.containsKey(memberId)) 
 			return members.get(memberId);
 		return null;
 	}
 
 	
-	public book Book(int bookId) {
+	public Book book(int bookId) // Author Amandeep Kaur change the first letter of the class Book from lower to upper case and method name from upper to lower Reviewed By Kasun Amarsinghe
+	{
 		if (catalog.containsKey(bookId)) 
 			return catalog.get(bookId);		
 		return null;
@@ -155,14 +169,15 @@ public class library implements Serializable {
 	}
 
 	
-	public boolean memberCanBorrow(member member) {		
+	public boolean memberCanBorrow(Member member) // Author Amandeep Kaur change the first letter of the class Member from lower to upper case Reviewed By Kasun Amarsinghe
+	{		
 		if (member.getNumberOfCurrentLoans() == LOAN_LIMIT ) 
 			return false;
 				
 		if (member.getFinesOwed() >= MAX_FINES_OWED) 
 			return false;
 				
-		for (loan loan : member.getLoans()) 
+		for (Loan loan : member.getLoans()) // Author Amandeep Kaur change the first letter of the class Loan from lower to upper case Reviewed By Kasun Amarsinghe
 			if (loan.isOverDue()) 
 				return false;
 			
@@ -170,14 +185,16 @@ public class library implements Serializable {
 	}
 
 	
-	public int loansRemainingForMember(member member) {		
+	public int loansRemainingForMember(Member member) // Author Amandeep Kaur change the first letter of the class Member from lower to upper case Reviewed By Kasun Amarsinghe
+	{		
 		return LOAN_LIMIT - member.getNumberOfCurrentLoans();
 	}
 
 	
-	public loan issueLoan(book book, member member) {
+	public Loan issueLoan(Book book, Member member) // Author Amandeep Kaur change the first letter of the class Loan , Book and Member from lower to upper case Reviewed By Kasun Amarsinghe
+	{
 		Date dueDate = Calendar.getInstance().getDueDate(LOAN_PERIOD);
-		loan loan = new loan(nextLID(), book, member, dueDate);
+		Loan loan = new loan(nextLID(), book, member, dueDate);
 		member.takeOutLoan(loan);
 		book.Borrow();
 		loans.put(loan.getId(), loan);
@@ -186,7 +203,8 @@ public class library implements Serializable {
 	}
 	
 	
-	public loan getLoanByBookId(int bookId) {
+	public Loan getLoanByBookId(int bookId) // Author Amandeep Kaur change the first letter of the class  Loan from lower to upper case Reviewed By Kasun Amarsinghe
+	{
 		if (currentLoans.containsKey(bookId)) {
 			return currentLoans.get(bookId);
 		}
@@ -194,7 +212,8 @@ public class library implements Serializable {
 	}
 
 	
-	public double calculateOverDueFine(loan loan) {
+	public double calculateOverDueFine(Loan loan) // Author Amandeep kaur Capatalize the class name 
+	{
 		if (loan.isOverDue()) {
 			long daysOverDue = Calendar.getInstance().getDaysDifference(loan.getDueDate());
 			double fine = daysOverDue * FINE_PER_DAY;
@@ -204,9 +223,10 @@ public class library implements Serializable {
 	}
 
 
-	public void dischargeLoan(loan currentLoan, boolean isDamaged) {
-		member member = currentLoan.Member();
-		book book  = currentLoan.Book();
+	public void dischargeLoan(loan currentLoan, boolean isDamaged) // Author Amandeep kaur Capatalize the class name 
+	{
+		Member member = currentLoan.Member();// Author Amandeep kaur Capatalize the class name 
+		Book book  = currentLoan.Book(); // Author Amandeep kaur Capatalize the class name 
 		
 		double overDueFine = calculateOverDueFine(currentLoan);
 		member.addFine(overDueFine);	
@@ -218,18 +238,20 @@ public class library implements Serializable {
 			damagedBooks.put(book.ID(), book);
 		}
 		currentLoan.Loan();
-		currentLoans.remove(book.ID());
+		currentLoans.remove(book.ID()); 
 	}
 
 
 	public void checkCurrentLoans() {
-		for (loan loan : currentLoans.values()) {
+		for (Loan loan : currentLoans.values()) //Author Amandeep kaur Capatalize the class name 
+		{
 			loan.checkOverDue();
 		}		
 	}
 
 
-	public void repairBook(book currentBook) {
+	public void repairBook(Book currentBook) //Author Amandeep kaur Capatalize the class name 
+	{
 		if (damagedBooks.containsKey(currentBook.ID())) {
 			currentBook.Repair();
 			damagedBooks.remove(currentBook.ID());
