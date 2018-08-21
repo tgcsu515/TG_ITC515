@@ -15,7 +15,7 @@ public class Main {
     private static Calendar calendarObj; //Renamed the varible name "CAL" to "calendarObj" to be meaningful-Author Kasun Amarasinghe
     private static SimpleDateFormat dateFormat; //Changed the varible name "SDF" to "dateFormat"-Author Kasun Amarasinghe 
 
-    private static String Get_menu() {
+    private static String get_menu() {// Chaged the first letter to lowercase in the method name-Author Kasun Amarasinghe
         StringBuilder stringBuilderObj = new StringBuilder();
 
         stringBuilderObj.append("\nLibrary Main Menu\n\n")
@@ -57,7 +57,8 @@ public class Main {
                 output(b);
             }
 
-            mainMenu = Get_menu(); //Updated the varible name "MENU" to "mainMenu"-Author Kasun Amarasinghe
+			//Updated the varible name "MENU" to "mainMenu"-Author Kasun Amarasinghe
+            mainMenu = get_menu();// Chaged the first letter to lowercase in the method name-Author Kasun Amarasinghe
 
             boolean e = false;
 
