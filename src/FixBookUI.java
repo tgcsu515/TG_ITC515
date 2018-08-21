@@ -52,9 +52,9 @@ public class FixBookUI {
 				break;	
 				
 			case FIXING:
-				String userSelectedAnswer = input("Fix Book? (Y/N) : "); //Changed the varible name "ans" to "userSelectedAnswer" to be meaningfull-Author Kasun Amarasinghe 
+				String userSelectedAnswer = input("Fix Book? (Y/N) : "); //Changed the varible name "ans" to "userSelectedAnswer" to be meaningfull-Author: Kasun Amarasinghe/Reviewed By Kanchan Bala 
 				boolean fix = false;
-				if (userSelectedAnswer.toUpperCase().equals("Y")) //Changed the varible name "ans" to "userSelectedAnswer" to be meaningfull-Author Kasun Amarasinghe 
+				if (userSelectedAnswer.toUpperCase().equals("Y")) //Changed the varible name "ans" to "userSelectedAnswer" to be meaningfull-Author: Kasun Amarasinghe/Reviewed By Kanchan Bala
 				{
 					fix = true;
 				}
