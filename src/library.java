@@ -30,8 +30,8 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 	private static final double DAMAGE_FEE = 2.0;
 	
 	private static Library self; // Author Amandeep Kaur change the first letter of the class from lower to upper case  Reviewed By Kasun Amarsinghe
-	private int BID;
-	private int MID;
+	private int bookID;
+	private int memberID;
 	private int LID;
 	private Date loadDate;
 	
@@ -140,11 +140,11 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 	}
 
 	
-	public Book addBook(String a, String t, String c) // author Amandeep Kaur change the method name letter  according to the naming convention to camel case Reviewed By Kasun Amarsinghe
+	public Book addBook(String author, String title, String callNo) // author Amandeep Kaur change the method name  and argument variables  according to the naming convention to camel case Reviewed By Kasun Amarsinghe
 	{		
-		Book b = new Book(a, t, c, nextBID());// author Amandeep Kaur capatalize  the Book class  from lower as reviewed by the Kasun Amarsinghe
-		catalog.put(b.ID(), b);		
-		return b;
+		Book currentBook = new Book(author, title, callNo, nextBID());// author Amandeep Kaur capatalize  the Book class  from lower as reviewed by the Kasun Amarsinghe
+		catalog.put(currentBook.ID(), currentBook);		// update the object name according to the naming convention
+		return currentBook;
 	}
 
 	
@@ -212,7 +212,7 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 	}
 
 	
-	public double calculateOverDueFine(Loan loan) // Author Amandeep kaur Capatalize the class name 
+	public double calculateOverDueFine(Loan loan) // Author Amandeep kaur Capatalize the class name Reviewed By Kasun Amarsinghe
 	{
 		if (loan.isOverDue()) {
 			long daysOverDue = Calendar.getInstance().getDaysDifference(loan.getDueDate());
@@ -223,10 +223,10 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 	}
 
 
-	public void dischargeLoan(loan currentLoan, boolean isDamaged) // Author Amandeep kaur Capatalize the class name 
+	public void dischargeLoan(Loan currentLoan, boolean isDamaged) // Author Amandeep kaur Capatalize the class name  and update the loan to Loan Reviewed By Kasun Amarsinghe
 	{
-		Member member = currentLoan.Member();// Author Amandeep kaur Capatalize the class name 
-		Book book  = currentLoan.Book(); // Author Amandeep kaur Capatalize the class name 
+		Member member = currentLoan.Member();// Author Amandeep kaur Capatalize the class name  Reviewed By Kasun Amarsinghe
+		Book book  = currentLoan.Book(); // Author Amandeep kaur Capatalize the class name Reviewed By Kasun Amarsinghe
 		
 		double overDueFine = calculateOverDueFine(currentLoan);
 		member.addFine(overDueFine);	
@@ -243,14 +243,14 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 
 
 	public void checkCurrentLoans() {
-		for (Loan loan : currentLoans.values()) //Author Amandeep kaur Capatalize the class name 
+		for (Loan loan : currentLoans.values()) //Author Amandeep kaur Capatalize the class name Reviewed By Kasun Amarsinghe
 		{
 			loan.checkOverDue();
 		}		
 	}
 
 
-	public void repairBook(Book currentBook) //Author Amandeep kaur Capatalize the class name 
+	public void repairBook(Book currentBook) //Author Amandeep kaur Capatalize the class name Reviewed By Kasun Amarsinghe
 	{
 		if (damagedBooks.containsKey(currentBook.ID())) {
 			currentBook.Repair();
