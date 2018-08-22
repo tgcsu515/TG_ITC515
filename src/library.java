@@ -1,6 +1,7 @@
 
 /* 
 The author for the Library.java class is Amandeep kaur
+Saved the file from library.java to Library.java
 The other members of the team will review the code updates which were done by the author to this file
 The mediator for the Library.java file is Kanchan Bala
 This class file will be reviewed according to the code style guidelines and necessary updation to the code  will be done by the author Amandeep Kaur
@@ -30,9 +31,9 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 	private static final double DAMAGE_FEE = 2.0;
 	
 	private static Library self; // Author Amandeep Kaur change the first letter of the class from lower to upper case  Reviewed By Kasun Amarsinghe
-	private int BID;
-	private int MID;
-	private int LID;
+	private int currentBookID; //Author Amandeep Kaur correct the variable name 
+	private int currentMemberID; //Author Amandeep Kaur correct the variable name
+	private int currentLoanID;// // Author Amandeep Kaur update the variable name loanID to currentLoanID
 	private Date loadDate;
 	
 	private Map<Integer, Book> catalog;// Author Amandeep Kaur change the first letter of the class Book from lower to upper case Reviewed By Kasun Amarsinghe
@@ -48,9 +49,9 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 		loans = new HashMap<>();
 		currentLoans = new HashMap<>();
 		damagedBooks = new HashMap<>();
-		BID = 1;
-		MID = 1;	
-		LID = 1;		
+		currentBookID = 1; // author Amandeep Kaur update the variable name  bookID to currentBookID
+		currentMemberID = 1;	// author Amandeep Kaur update the variable name  memberID currentMemberID
+		currentLoanID = 1;		// author Amandeep Kaur update the variable name  loanID currentLoanID
 	} 
 
 	
@@ -58,11 +59,11 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 		if (self == null) {
 			Path path = Paths.get(LIBRARY_FILE);			
 			if (Files.exists(path)) {	
-				try (ObjectInputStream lof = new ObjectInputStream(new FileInputStream(LIBRARY_FILE));) {
+				try (ObjectInputStream lenghthOfFile = new ObjectInputStream(new FileInputStream(LIBRARY_FILE));) { // Author Amandeep Kaur update the object name lof to lengthOfFile
 			    
-					self = (library) lof.readObject();
+					self = (library) lenghthOfFile.readObject();
 					Calendar.getInstance().setDate(self.loadDate);
-					lof.close();
+					lenghthOfFile.close();
 				}
 				catch (Exception e) {
 					throw new RuntimeException(e);
@@ -77,10 +78,10 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 	public static synchronized void SAVE() {
 		if (self != null) {
 			self.loadDate = Calendar.getInstance().Date();
-			try (ObjectOutputStream lof = new ObjectOutputStream(new FileOutputStream(LIBRARY_FILE));) {
-				lof.writeObject(self);
-				lof.flush();
-				lof.close();	
+			try (ObjectOutputStream lenghthOfFile = new ObjectOutputStream(new FileOutputStream(LIBRARY_FILE));) {
+				lenghthOfFile.writeObject(self); // Author Amandeep Kaur update the object name lof to lengthOfFile
+				lenghthOfFile.flush();
+				lenghthOfFile.close();	
 			}
 			catch (Exception e) {
 				throw new RuntimeException(e);
@@ -91,44 +92,44 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 	
 	public int bookID() // author Amandeep Kaur change the method  first letter capital to lower Reviewed By Kasun Amarsinghe
 	{
-		return BID;
+		return currentBookID; // author Amandeep Kaur update the variable name form bookID to currentBookID 
 	}
 	
 	
 	public int memberID() //author Amandeep Kaur change the method  first letter capital to lower Reviewed By Kasun Amarsinghe
 	{ 
-		return MID;
+		return currentMemberID; // author Amandeep Kaur update the variable name  memberID to currentMemberID
 	}
 	
 	
-	private int nextBID() 
+	private int nextBookID() // author Amandeep Kaur update the method name nextBID to nextBookID
 	{
-		return BID++;
+		return currentBookID++; //author Amandeep Kaur update the variable name  bookID to currentBookID
 	}
 
 	
-	private int nextMID() {
-		return MID++;
+	private int nextMemberID() { // author Amandeep Kaur update the method name nextMID to nextMemberID
+		return currentMemberID++; // author Amandeep Kaur update the variable name memberID to currentMemberID
 	}
 
 	
-	private int nextLID() {
-		return LID++;
+	private int nextLoanID() { // author Amandeep Kaur update the method name nextLID to nextLoanID
+		return currentLoanID++;// author Amandeep Kaur update the variable name loanID to currentLoanID
 	}
 
 	
-	public List<member> Members() {		
-		return new ArrayList<member>(members.values()); 
+	public List<Member> members() {		// author Amandeep Kaur update  the member class  and  member method
+		return new ArrayList<Member>(members.values()); 
 	}
 
 
-	public List<book> Books() {		
-		return new ArrayList<book>(catalog.values()); 
+	public List<Book> books() {		// author Amandeep Kaur capatalize the  book  class to Book and update the books method
+		return new ArrayList<Book>(catalog.values()); 
 	}
 
 
-	public List<loan> CurrentLoans() {
-		return new ArrayList<loan>(currentLoans.values());
+	public List<Loan> currentLoans() { // author Amandeep Kaur capatalize  the loan to Loan and and update the method name
+		return new ArrayList<Loan>(currentLoans.values());
 	}
 
 
@@ -140,11 +141,11 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 	}
 
 	
-	public Book addBook(String a, String t, String c) // author Amandeep Kaur change the method name letter  according to the naming convention to camel case Reviewed By Kasun Amarsinghe
+	public Book addBook(String author, String title, String callNo) // author Amandeep Kaur change the method name  and argument variables  according to the naming convention to camel case Reviewed By Kasun Amarsinghe
 	{		
-		Book b = new Book(a, t, c, nextBID());// author Amandeep Kaur capatalize  the Book class  from lower as reviewed by the Kasun Amarsinghe
-		catalog.put(b.ID(), b);		
-		return b;
+		Book currentBook = new Book(author, title, callNo, nextBookID());// author Amandeep Kaur capatalize  the Book class  from lower as reviewed by the Kasun Amarsinghe
+		catalog.put(currentBook.ID(), currentBook);		// update the object name according to the naming convention
+		return currentBook;
 	}
 
 	
@@ -194,7 +195,7 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 	public Loan issueLoan(Book book, Member member) // Author Amandeep Kaur change the first letter of the class Loan , Book and Member from lower to upper case Reviewed By Kasun Amarsinghe
 	{
 		Date dueDate = Calendar.getInstance().getDueDate(LOAN_PERIOD);
-		Loan loan = new loan(nextLID(), book, member, dueDate);
+		Loan loan = new loan(nextLoanID(), book, member, dueDate);//  Author Amandeep Kaur update the method name
 		member.takeOutLoan(loan);
 		book.Borrow();
 		loans.put(loan.getId(), loan);
@@ -212,7 +213,7 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 	}
 
 	
-	public double calculateOverDueFine(Loan loan) // Author Amandeep kaur Capatalize the class name 
+	public double calculateOverDueFine(Loan loan) // Author Amandeep kaur Capatalize the class name Reviewed By Kasun Amarsinghe
 	{
 		if (loan.isOverDue()) {
 			long daysOverDue = Calendar.getInstance().getDaysDifference(loan.getDueDate());
@@ -223,10 +224,10 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 	}
 
 
-	public void dischargeLoan(loan currentLoan, boolean isDamaged) // Author Amandeep kaur Capatalize the class name 
+	public void dischargeLoan(Loan currentLoan, boolean isDamaged) // Author Amandeep kaur Capatalize the class name  and update the loan to Loan Reviewed By Kasun Amarsinghe
 	{
-		Member member = currentLoan.Member();// Author Amandeep kaur Capatalize the class name 
-		Book book  = currentLoan.Book(); // Author Amandeep kaur Capatalize the class name 
+		Member member = currentLoan.Member();// Author Amandeep kaur Capatalize the class name  Reviewed By Kasun Amarsinghe
+		Book book  = currentLoan.Book(); // Author Amandeep kaur Capatalize the class name Reviewed By Kasun Amarsinghe
 		
 		double overDueFine = calculateOverDueFine(currentLoan);
 		member.addFine(overDueFine);	
@@ -243,14 +244,14 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 
 
 	public void checkCurrentLoans() {
-		for (Loan loan : currentLoans.values()) //Author Amandeep kaur Capatalize the class name 
+		for (Loan loan : currentLoans.values()) //Author Amandeep kaur Capatalize the class name Reviewed By Kasun Amarsinghe
 		{
 			loan.checkOverDue();
 		}		
 	}
 
 
-	public void repairBook(Book currentBook) //Author Amandeep kaur Capatalize the class name 
+	public void repairBook(Book currentBook) //Author Amandeep kaur Capatalize the class name Reviewed By Kasun Amarsinghe
 	{
 		if (damagedBooks.containsKey(currentBook.ID())) {
 			currentBook.Repair();
