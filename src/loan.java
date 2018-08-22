@@ -53,13 +53,12 @@ public class Loan implements Serializable {// Author Amandeep Kaur update the cl
 
 		StringBuilder stringBuilderObj = new StringBuilder(); // author Amandeep Kaur change the object name sb to  stringBuilderObj
 
-		stringBuilderObj.append("Loan:  ").append(ID).append("\n")
-		  .append("  Borrower ").append(M.getId()).append(" : ")
-		  .append(M.getLastName()).append(", ").append(M.getFirstName()).append("\n")
-		  .append("  Book ").append(B.ID()).append(" : " )
-		  .append(B.Title()).append("\n")
-		  .append("  DueDate: ").append(sdf.format(D)).append("\n")
-		  .append("  State: ").append(state);		
+		stringBuilderObj.append("Loan:  ").append(loanID).append("\n") // author Amandeep Kaur change the variable name ID to loanID
+		  .append("  Borrower ").append(currentMember.getId()).append(" : ") // author Amandeep Kaur change the variable name M to currentMember
+		  .append(currentMember.getLastName()).append(", ").append(currentMember.getFirstName()).append("\n")// author Amandeep Kaur change the variable name M to currentMember
+		  .append(currentBook.Title()).append("\n") // author Amandeep Kaur change the variable name B to currentBook
+		  .append("  DueDate: ").append(simpleDateFormatObj.format(Date)).append("\n") // author Amandeep Kaur change the object name sdf to  simpleDateFormatObj
+		  .append("  State: ").append(loanState);	 // author Amandeep Kaur change the variable name state to loanState	
 		return stringBuilderObj.toString();
 	}
 
