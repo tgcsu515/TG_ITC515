@@ -32,7 +32,7 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 	private static Library self; // Author Amandeep Kaur change the first letter of the class from lower to upper case  Reviewed By Kasun Amarsinghe
 	private int bookID;
 	private int memberID;
-	private int LID;
+	private int loanID;// // Author Amandeep Kaur update the variable name LID to loan ID
 	private Date loadDate;
 	
 	private Map<Integer, Book> catalog;// Author Amandeep Kaur change the first letter of the class Book from lower to upper case Reviewed By Kasun Amarsinghe
@@ -48,9 +48,9 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 		loans = new HashMap<>();
 		currentLoans = new HashMap<>();
 		damagedBooks = new HashMap<>();
-		BID = 1;
-		MID = 1;	
-		LID = 1;		
+		bookID = 1; // author Amandeep Kaur update the variable name BID to bookID
+		memberID = 1;	// author Amandeep Kaur update the variable name MID to memberID
+		loanID = 1;		// author Amandeep Kaur update the variable name LID to loanID
 	} 
 
 	
@@ -91,29 +91,29 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 	
 	public int bookID() // author Amandeep Kaur change the method  first letter capital to lower Reviewed By Kasun Amarsinghe
 	{
-		return BID;
+		return bookID; // author Amandeep Kaur update the variable name BID to bookID
 	}
 	
 	
 	public int memberID() //author Amandeep Kaur change the method  first letter capital to lower Reviewed By Kasun Amarsinghe
 	{ 
-		return MID;
+		return memberID; // author Amandeep Kaur update the variable name MID to memberID
 	}
 	
 	
-	private int nextBID() 
+	private int nextBookID() // author Amandeep Kaur update the method name nextBID to nextBookID
 	{
-		return BID++;
+		return bookID++; //author Amandeep Kaur update the variable name BID to bookID
 	}
 
 	
-	private int nextMID() {
-		return MID++;
+	private int nextMemberID() { // author Amandeep Kaur update the method name nextMID to nextMemberID
+		return memberID++; // author Amandeep Kaur update the variable name MID to memberID
 	}
 
 	
-	private int nextLID() {
-		return LID++;
+	private int nextLoanID() { // author Amandeep Kaur update the method name nextLID to nextLoanID
+		return loanID++;// author Amandeep Kaur update the variable name LID to loanID
 	}
 
 	
