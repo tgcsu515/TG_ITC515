@@ -117,18 +117,18 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 	}
 
 	
-	public List<member> Members() {		
-		return new ArrayList<member>(members.values()); 
+	public List<Member> Members() {		// author Amandeep Kaur capatalize the member class to Member
+		return new ArrayList<Member>(members.values()); 
 	}
 
 
-	public List<book> Books() {		
-		return new ArrayList<book>(catalog.values()); 
+	public List<Book> Books() {		// author Amandeep Kaur capatalize the  book  class to Book
+		return new ArrayList<Book>(catalog.values()); 
 	}
 
 
-	public List<loan> CurrentLoans() {
-		return new ArrayList<loan>(currentLoans.values());
+	public List<Loan> CurrentLoans() { // author Amandeep Kaur capatalize  the loan to Loan
+		return new ArrayList<Loan>(currentLoans.values());
 	}
 
 
