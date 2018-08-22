@@ -39,12 +39,12 @@ public class Loan implements Serializable {// Author Amandeep Kaur update the cl
 
 	
 	public Integer getId() {
-		return ID;
+		return loanID; // author Amandeep Kaur change the variable name ID to loanID
 	}
 
 
 	public Date getDueDate() {
-		return D;
+		return dueDate; // author Amandeep Kaur change the variable name d to dueDate
 	}
 	
 	
