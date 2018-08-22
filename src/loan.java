@@ -17,23 +17,24 @@ public class Loan implements Serializable {// Author Amandeep Kaur update the cl
 	public loan(int loanId, Book currentBook, Member currentMember, Date dueDate) 
 	{
 		this.loanID = loanId; // author Amandeep Kaur change the variable name ID to loanID
-		this.B = book;
-		this.M = member;
-		this.D = dueDate;
-		this.state = LOAN_STATE.CURRENT;
+		this.currentBook = currentBook;// author Amandeep Kaur change the variable name b to currentBook  
+		this.currentMember = currentMember; // author Amandeep Kaur change the variable name M to currentMember
+		this.dueDate = dueDate; // author Amandeep Kaur change the variable name d to dueDate
+		this.loanState = LOAN_STATE.CURRENT; // author Amandeep Kaur change the variable name state to loanState
 	}
 
 	
 	public void checkOverDue() {
-		if (state == LOAN_STATE.CURRENT &&
-			Calendar.getInstance().Date().after(D)) {
-			this.state = LOAN_STATE.OVER_DUE;			
+		if (loanState == LOAN_STATE.CURRENT &&  // author Amandeep Kaur change the variable name state to loanState
+			Calendar.getInstance().Date().after(dueDate)) // author Amandeep Kaur change the variable name d to dueDate
+			{
+			this.loanState = LOAN_STATE.OVER_DUE; // author Amandeep Kaur change the variable name state to loanState
 		}
 	}
 
 	
 	public boolean isOverDue() {
-		return state == LOAN_STATE.OVER_DUE;
+		return loanState == LOAN_STATE.OVER_DUE; // author Amandeep Kaur change the variable name state to loanState
 	}
 
 	
