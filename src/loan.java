@@ -1,3 +1,11 @@
+/* 
+The author for the Loan.java class is Amandeep kaur
+Saved the file from loan.java to Loan.java
+Kasun Amarasingha will  review the code updates which were done by the author to this file
+The mediator for the Library.java file is Kanchan Bala
+This class file will be reviewed according to the code style guidelines and necessary updation to the code  will be done by the author Amandeep Kaur
+*/
+
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
