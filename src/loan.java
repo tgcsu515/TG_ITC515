@@ -3,15 +3,15 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @SuppressWarnings("serial")
-public class loan implements Serializable {
+public class Loan implements Serializable {// Author Amandeep Kaur update the class name first letter from lower to upper case
 	
 	public static enum LOAN_STATE { CURRENT, OVER_DUE, DISCHARGED };
 	
-	private int ID;
-	private book B;
-	private member M;
-	private Date D;
-	private LOAN_STATE state;
+	private int loanID;// author Amandeep Kaur change the variable name ID to LoanID
+	private Book currentBook; // author Amandeep Kaur change the class name book to Book and variable name b to currentBook
+	private Member currentMember; // author Amandeep Kaur change the the class name member to Member and variable name m to currentMember
+	private Date dueDate; // author Amandeep Kaur change the variable name date to dueDate
+	private LOAN_STATE loanState; // author Amandeep Kaur change the variable name state to loanState
 
 	
 	public loan(int loanId, book book, member member, Date dueDate) {
