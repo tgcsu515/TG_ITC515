@@ -49,17 +49,18 @@ public class Loan implements Serializable {// Author Amandeep Kaur update the cl
 	
 	
 	public String toString() {
-		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		SimpleDateFormat simpleDateFormatObj = new SimpleDateFormat("dd/MM/yyyy");// author Amandeep Kaur change the object name sdf to  simpleDateFormatObj
 
-		StringBuilder sb = new StringBuilder();
-		sb.append("Loan:  ").append(ID).append("\n")
+		StringBuilder stringBuilderObj = new StringBuilder(); // author Amandeep Kaur change the object name sb to  stringBuilderObj
+
+		stringBuilderObj.append("Loan:  ").append(ID).append("\n")
 		  .append("  Borrower ").append(M.getId()).append(" : ")
 		  .append(M.getLastName()).append(", ").append(M.getFirstName()).append("\n")
 		  .append("  Book ").append(B.ID()).append(" : " )
 		  .append(B.Title()).append("\n")
 		  .append("  DueDate: ").append(sdf.format(D)).append("\n")
 		  .append("  State: ").append(state);		
-		return sb.toString();
+		return stringBuilderObj.toString();
 	}
 
 
