@@ -58,11 +58,11 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 		if (self == null) {
 			Path path = Paths.get(LIBRARY_FILE);			
 			if (Files.exists(path)) {	
-				try (ObjectInputStream lof = new ObjectInputStream(new FileInputStream(LIBRARY_FILE));) {
+				try (ObjectInputStream lenghthOfFile = new ObjectInputStream(new FileInputStream(LIBRARY_FILE));) { // Author Amandeep Kaur update the object name lof to lengthOfFile
 			    
-					self = (library) lof.readObject();
+					self = (library) lenghthOfFile.readObject();
 					Calendar.getInstance().setDate(self.loadDate);
-					lof.close();
+					lenghthOfFile.close();
 				}
 				catch (Exception e) {
 					throw new RuntimeException(e);
@@ -77,10 +77,10 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 	public static synchronized void SAVE() {
 		if (self != null) {
 			self.loadDate = Calendar.getInstance().Date();
-			try (ObjectOutputStream lof = new ObjectOutputStream(new FileOutputStream(LIBRARY_FILE));) {
-				lof.writeObject(self);
-				lof.flush();
-				lof.close();	
+			try (ObjectOutputStream lenghthOfFile = new ObjectOutputStream(new FileOutputStream(LIBRARY_FILE));) {
+				lenghthOfFile.writeObject(self); // Author Amandeep Kaur update the object name lof to lengthOfFile
+				lenghthOfFile.flush();
+				lenghthOfFile.close();	
 			}
 			catch (Exception e) {
 				throw new RuntimeException(e);
