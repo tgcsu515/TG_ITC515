@@ -7,15 +7,16 @@ public class Loan implements Serializable {// Author Amandeep Kaur update the cl
 	
 	public static enum LOAN_STATE { CURRENT, OVER_DUE, DISCHARGED };
 	
-	private int loanID;// author Amandeep Kaur change the variable name ID to LoanID
+	private int loanID;// author Amandeep Kaur change the variable name ID to loanID
 	private Book currentBook; // author Amandeep Kaur change the class name book to Book and variable name b to currentBook
 	private Member currentMember; // author Amandeep Kaur change the the class name member to Member and variable name m to currentMember
 	private Date dueDate; // author Amandeep Kaur change the variable name date to dueDate
 	private LOAN_STATE loanState; // author Amandeep Kaur change the variable name state to loanState
 
-	
-	public loan(int loanId, book book, member member, Date dueDate) {
-		this.ID = loanId;
+	 // author Amandeep Kaur change the variable name and captalize the class name first letter
+	public loan(int loanId, Book currentBook, Member currentMember, Date dueDate) 
+	{
+		this.loanID = loanId; // author Amandeep Kaur change the variable name ID to loanID
 		this.B = book;
 		this.M = member;
 		this.D = dueDate;
