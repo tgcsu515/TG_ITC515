@@ -31,9 +31,9 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 	private static final double DAMAGE_FEE = 2.0;
 	
 	private static Library self; // Author Amandeep Kaur change the first letter of the class from lower to upper case  Reviewed By Kasun Amarsinghe
-	private int bookID;
-	private int memberID;
-	private int loanID;// // Author Amandeep Kaur update the variable name LID to loan ID
+	private int currentBookID; //Author Amandeep Kaur correct the variable name 
+	private int currentMemberID; //Author Amandeep Kaur correct the variable name
+	private int currentLoanID;// // Author Amandeep Kaur update the variable name loanID to currentLoanID
 	private Date loadDate;
 	
 	private Map<Integer, Book> catalog;// Author Amandeep Kaur change the first letter of the class Book from lower to upper case Reviewed By Kasun Amarsinghe
@@ -49,9 +49,9 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 		loans = new HashMap<>();
 		currentLoans = new HashMap<>();
 		damagedBooks = new HashMap<>();
-		bookID = 1; // author Amandeep Kaur update the variable name BID to bookID
-		memberID = 1;	// author Amandeep Kaur update the variable name MID to memberID
-		loanID = 1;		// author Amandeep Kaur update the variable name LID to loanID
+		currentBookID = 1; // author Amandeep Kaur update the variable name  bookID to currentBookID
+		currentMemberID = 1;	// author Amandeep Kaur update the variable name  memberID currentMemberID
+		currentLoanID = 1;		// author Amandeep Kaur update the variable name  loanID currentLoanID
 	} 
 
 	
@@ -92,43 +92,43 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 	
 	public int bookID() // author Amandeep Kaur change the method  first letter capital to lower Reviewed By Kasun Amarsinghe
 	{
-		return bookID; // author Amandeep Kaur update the variable name BID to bookID
+		return currentBookID; // author Amandeep Kaur update the variable name form bookID to currentBookID 
 	}
 	
 	
 	public int memberID() //author Amandeep Kaur change the method  first letter capital to lower Reviewed By Kasun Amarsinghe
 	{ 
-		return memberID; // author Amandeep Kaur update the variable name MID to memberID
+		return currentMemberID; // author Amandeep Kaur update the variable name  memberID to currentMemberID
 	}
 	
 	
 	private int nextBookID() // author Amandeep Kaur update the method name nextBID to nextBookID
 	{
-		return bookID++; //author Amandeep Kaur update the variable name BID to bookID
+		return currentBookID++; //author Amandeep Kaur update the variable name  bookID to currentBookID
 	}
 
 	
 	private int nextMemberID() { // author Amandeep Kaur update the method name nextMID to nextMemberID
-		return memberID++; // author Amandeep Kaur update the variable name MID to memberID
+		return currentMemberID++; // author Amandeep Kaur update the variable name memberID to currentMemberID
 	}
 
 	
 	private int nextLoanID() { // author Amandeep Kaur update the method name nextLID to nextLoanID
-		return loanID++;// author Amandeep Kaur update the variable name LID to loanID
+		return currentLoanID++;// author Amandeep Kaur update the variable name loanID to currentLoanID
 	}
 
 	
-	public List<Member> Members() {		// author Amandeep Kaur capatalize the member class to Member
+	public List<Member> members() {		// author Amandeep Kaur update  the member class  and  member method
 		return new ArrayList<Member>(members.values()); 
 	}
 
 
-	public List<Book> Books() {		// author Amandeep Kaur capatalize the  book  class to Book
+	public List<Book> books() {		// author Amandeep Kaur capatalize the  book  class to Book and update the books method
 		return new ArrayList<Book>(catalog.values()); 
 	}
 
 
-	public List<Loan> CurrentLoans() { // author Amandeep Kaur capatalize  the loan to Loan
+	public List<Loan> currentLoans() { // author Amandeep Kaur capatalize  the loan to Loan and and update the method name
 		return new ArrayList<Loan>(currentLoans.values());
 	}
 
@@ -143,7 +143,7 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 	
 	public Book addBook(String author, String title, String callNo) // author Amandeep Kaur change the method name  and argument variables  according to the naming convention to camel case Reviewed By Kasun Amarsinghe
 	{		
-		Book currentBook = new Book(author, title, callNo, nextBID());// author Amandeep Kaur capatalize  the Book class  from lower as reviewed by the Kasun Amarsinghe
+		Book currentBook = new Book(author, title, callNo, nextBookID());// author Amandeep Kaur capatalize  the Book class  from lower as reviewed by the Kasun Amarsinghe
 		catalog.put(currentBook.ID(), currentBook);		// update the object name according to the naming convention
 		return currentBook;
 	}
@@ -195,7 +195,7 @@ public class Library implements Serializable { //Author Amandeep kaur change the
 	public Loan issueLoan(Book book, Member member) // Author Amandeep Kaur change the first letter of the class Loan , Book and Member from lower to upper case Reviewed By Kasun Amarsinghe
 	{
 		Date dueDate = Calendar.getInstance().getDueDate(LOAN_PERIOD);
-		Loan loan = new loan(nextLID(), book, member, dueDate);
+		Loan loan = new loan(nextLoanID(), book, member, dueDate);//  Author Amandeep Kaur update the method name
 		member.takeOutLoan(loan);
 		book.Borrow();
 		loans.put(loan.getId(), loan);
