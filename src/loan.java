@@ -63,18 +63,21 @@ public class Loan implements Serializable {// Author Amandeep Kaur update the cl
 	}
 
 
-	public member Member() {
-		return M;
+	public Member member()  // author Amandeep Kaur capatilize  the first letter of the class Member and lower the method name letter
+	{
+		return currentMember; // author Amandeep Kaur change the variable name M to currentMember
 	}
 
 
-	public book Book() {
-		return B;
+	public Book book() // author Amandeep Kaur capatilize  the first letter of the class Book and lower the method name letter
+	{
+		return currentBook; // author Amandeep Kaur change the variable name B to currentBook
 	}
 
 
-	public void Loan() {
-		state = LOAN_STATE.DISCHARGED;		
+	public void loan()// author Amandeep kaur change the member name loan to Loan
+	{
+		loanState = LOAN_STATE.DISCHARGED;		// author Amandeep Kaur change the variable name state to loanState
 	}
 
 }
