@@ -2,7 +2,7 @@ public class PayFineControl {
 	
 	private PayFineUI payFineUi; //change the name of the variable from 'ui' to 'payFineUi' as Admin - Arashdeep Kaur
 	private enum CONTROL_STATE { INITIALISED, READY, PAYING, COMPLETED, CANCELLED };
-	private CONTROL_STATE state;
+	private CONTROL_STATE payFineState; //change the name of the variable from 'state' to 'payFineState' as Admin - Arashdeep Kaur
 	
 	private library library;
 	private member member;;
@@ -10,7 +10,7 @@ public class PayFineControl {
 
 	public PayFineControl() {
 		this.library = library.INSTANCE();
-		state = CONTROL_STATE.INITIALISED;
+		payFineState = CONTROL_STATE.INITIALISED; //change the name of the variable from 'state' to 'payFineState' as Admin - Arashdeep Kaur
 	}
 	
 	
@@ -21,7 +21,7 @@ public class PayFineControl {
 		}	
 		this.payFineUi = payFineUi;  //change the name of the variable from 'ui' to 'payFineUi' as Admin - Arashdeep Kaur
 		payFineUi.setState(PayFineUI.UI_STATE.READY);  //change the name of the variable from 'ui' to 'payFineUi' as Admin - Arashdeep Kaur
-		state = CONTROL_STATE.READY;		
+		payFineState = CONTROL_STATE.READY;	//change the name of the variable from 'state' to 'payFineState' as Admin - Arashdeep Kaur	
 	}
 
 
@@ -37,13 +37,13 @@ public class PayFineControl {
 		}
 		payFineUi.display(member.toString());  //change the name of the variable from 'ui' to 'payFineUi' as Admin - Arashdeep Kaur
 		payFineUi.setState(PayFineUI.UI_STATE.PAYING);  //change the name of the variable from 'ui' to 'payFineUi' as Admin - Arashdeep Kaur
-		state = CONTROL_STATE.PAYING;
+		payFineState = CONTROL_STATE.PAYING;  //change the name of the variable from 'state' to 'payFineState' as Admin - Arashdeep Kaur
 	}
 	
 	
 	public void cancel() {
 		payFineUi.setState(PayFineUI.UI_STATE.CANCELLED);  //change the name of the variable from 'ui' to 'payFineUi' as Admin - Arashdeep Kaur
-		state = CONTROL_STATE.CANCELLED;
+		PayFineState = CONTROL_STATE.CANCELLED; //change the name of the variable from 'state' to 'payFineState' as Admin - Arashdeep Kaur
 	}
 
 
@@ -55,9 +55,9 @@ public class PayFineControl {
 		if (change > 0) {
 			payFineUi.display(String.format("Change: $%.2f", change));  //change the name of the variable from 'ui' to 'payFineUi' as Admin - Arashdeep Kaur
 		}
-		ui.display(member.toString());
-		ui.setState(PayFineUI.UI_STATE.COMPLETED);
-		state = CONTROL_STATE.COMPLETED;
+		payFineUi.display(member.toString()); //change the name of the variable from 'ui' to 'payFineUi' as Admin - Arashdeep Kaur
+		payFineUi.setState(PayFineUI.UI_STATE.COMPLETED); //change the name of the variable from 'ui' to 'payFineUi' as Admin - Arashdeep Kaur
+		payFineState = CONTROL_STATE.COMPLETED; //change the name of the variable from 'state' to 'payFineState' as Admin - Arashdeep Kaur
 		return change;
 	}
 	
