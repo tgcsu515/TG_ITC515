@@ -1,5 +1,15 @@
-import java.io.Serializable;
+/*
+Gurpreet Singh Gill(11622931)
 
+This is a Java program of Book Management to keep record of book borrows and returns.
+
+* Keep the record of book details such as Title, Author and other details.
+* Keep the record of book, whos is the borrow, date time.
+* Keep the record of book, return date and time.
+* Keep the record of avalable books.
+* Arrange the book according to series.
+*/
+import java.io.Serializable;
 
 @SuppressWarnings("serial")
 public class Book implements Serializable {   //Change the class name from "book" to "Book" - BY GURPREET GILL

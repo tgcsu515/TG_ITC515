@@ -1,3 +1,11 @@
+/** Author: Kanchan Bala, Team Name: Team Genius, Student id: 11635336
+ * Reviewer: Amandeep Kaur, Mediator: Kasun Amarasinghe
+ * @version 9.0.4(build 9.0.4+ 11)
+ *
+ * In this program I have made few changes with variable names, they are changed to give the meaningful names as per the "Guidelines"
+ * Apart from these changes, I could not find any variable name, class name, indentation etcetra, which breach the guidelines.
+ */
+
 import java.util.Scanner;
 
 
@@ -5,16 +13,16 @@ public class ReturnBookUI {
 
 	public static enum UI_STATE { INITIALISED, READY, INSPECTING, COMPLETED };
 
-	private ReturnBookControl control;
+	private ReturnBookControl currentReturnBookControl;							//Author: Kanchan Bala, Changed variable name "control" to "currentReturnBookControl"
 	private Scanner input;
-	private UI_STATE state;
+	private UI_STATE currentUIState;											//Author: Kanchan Bala, Changed variable name "state" to "currentUIState"
 
 	
-	public ReturnBookUI(ReturnBookControl control) {
-		this.control = control;
+	public ReturnBookUI(ReturnBookControl currentReturnBookControl) {			//Author: Kanchan Bala, Update changed variable name "control" to "currentReturnBookControl"		
+		this.currentReturnBookControl = currentReturnBookControl;				//Author: Kanchan Bala, Update changed variable name "control" to "currentReturnBookControl"
 		input = new Scanner(System.in);
-		state = UI_STATE.INITIALISED;
-		control.setUI(this);
+		currentUIState = UI_STATE.INITIALISED;									//Author: Kanchan Bala, Update changed variable name "state" to "currentUIState"
+		currentReturnBookControl.setUI(this);									//Author: Kanchan Bala, Update changed variable name "control" to "currentReturnBookControl"
 	}
 
 
@@ -23,7 +31,7 @@ public class ReturnBookUI {
 		
 		while (true) {
 			
-			switch (state) {
+			switch (currentUIState) {											//Author: Kanchan Bala, Update changed variable name "state" to "currentUIState"									
 			
 			case INITIALISED:
 				break;
@@ -31,12 +39,12 @@ public class ReturnBookUI {
 			case READY:
 				String bookStr = input("Scan Book (<enter> completes): ");
 				if (bookStr.length() == 0) {
-					control.scanningComplete();
+					currentReturnBookControl.scanningComplete();					//Author: Kanchan Bala, Update changed variable name "control" to "currentReturnBookControl"
 				}
 				else {
 					try {
 						int bookId = Integer.valueOf(bookStr).intValue();
-						control.bookScanned(bookId);
+						currentReturnBookControl.bookScanned(bookId);				//Author: Kanchan Bala, Update changed variable name "control" to "currentReturnBookControl"
 					}
 					catch (NumberFormatException e) {
 						output("Invalid bookId");
@@ -45,12 +53,12 @@ public class ReturnBookUI {
 				break;				
 				
 			case INSPECTING:
-				String ans = input("Is book damaged? (Y/N): ");
+				String answer = input("Is book damaged? (Y/N): ");					//Author: Kanchan Bala, Changed variable name "ans" to "answer"
 				boolean isDamaged = false;
-				if (ans.toUpperCase().equals("Y")) {					
+				if (answer.toUpperCase().equals("Y")) {								//Author: Kanchan Bala, Update changed variable name "ans" to "answer"				
 					isDamaged = true;
 				}
-				control.dischargeLoan(isDamaged);
+				currentReturnBookControl.dischargeLoan(isDamaged);									
 			
 			case COMPLETED:
 				output("Return processing complete");
@@ -58,7 +66,7 @@ public class ReturnBookUI {
 			
 			default:
 				output("Unhandled state");
-				throw new RuntimeException("ReturnBookUI : unhandled state :" + state);			
+				throw new RuntimeException("ReturnBookUI : unhandled state :" + currentUIState);	//Author: Kanchan Bala, Update changed variable name "state" to "currentUIState"		
 			}
 		}
 	}
@@ -79,8 +87,8 @@ public class ReturnBookUI {
 		output(object);
 	}
 	
-	public void setState(UI_STATE state) {
-		this.state = state;
+	public void setState(UI_STATE currentUIState) {					//Author: Kanchan Bala, Update changed variable name "state" to "currentUIState"
+		this.currentUIState = currentUIState;						//Author: Kanchan Bala, Update changed variable name "state" to "currentUIState"
 	}
 
 	

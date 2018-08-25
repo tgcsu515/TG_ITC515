@@ -1,9 +1,9 @@
 import java.util.Scanner;
 
 /*The author for the following FixBookUI class is Kasun Amarasinghe.
-  All the other members will review the code updates which were done to this file.
+  Kanchan Bala will review the code updates which were done to this file.
   Arashdeep Kuar is the mediator for this class file.
-  This class file will be reviewed using the given Code Style Guidelines and necessary code updates will be done dy the Author.
+  This class file will be reviewed using the given Code Style Guidelines and necessary code updates will be done by the Author.
 */
 
 public class FixBookUI {
@@ -52,9 +52,9 @@ public class FixBookUI {
 				break;	
 				
 			case FIXING:
-				String userSelectedAnswer = input("Fix Book? (Y/N) : "); //Changed the varible name "ans" to "userSelectedAnswer" to be meaningfull-Author Kasun Amarasinghe 
+				String userSelectedAnswer = input("Fix Book? (Y/N) : "); //Changed the varible name "ans" to "userSelectedAnswer" to be meaningfull-Author: Kasun Amarasinghe/Reviewed By Kanchan Bala 
 				boolean fix = false;
-				if (userSelectedAnswer.toUpperCase().equals("Y")) //Changed the varible name "ans" to "userSelectedAnswer" to be meaningfull-Author Kasun Amarasinghe 
+				if (userSelectedAnswer.toUpperCase().equals("Y")) //Changed the varible name "ans" to "userSelectedAnswer" to be meaningfull-Author: Kasun Amarasinghe/Reviewed By Kanchan Bala
 				{
 					fix = true;
 				}
