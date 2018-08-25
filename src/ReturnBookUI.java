@@ -10,11 +10,11 @@ public class ReturnBookUI {
 	private UI_STATE currentUIState;											//Author: Kanchan Bala, Changed variable name "state" to "currentUIState"
 
 	
-	public ReturnBookUI(ReturnBookControl currentReturnBookControl) {					//Author: Kanchan Bala, Update changed variable name "control" to "currentReturnBookControl"		
-		this.currentReturnBookControl = currentReturnBookControl;						//Author: Kanchan Bala, Update changed variable name "control" to "currentReturnBookControl"
+	public ReturnBookUI(ReturnBookControl currentReturnBookControl) {			//Author: Kanchan Bala, Update changed variable name "control" to "currentReturnBookControl"		
+		this.currentReturnBookControl = currentReturnBookControl;				//Author: Kanchan Bala, Update changed variable name "control" to "currentReturnBookControl"
 		input = new Scanner(System.in);
-		currentUIState = UI_STATE.INITIALISED;											//Author: Kanchan Bala, Update changed variable name "state" to "currentUIState"
-		currentReturnBookControl.setUI(this);											//Author: Kanchan Bala, Update changed variable name "control" to "currentReturnBookControl"
+		currentUIState = UI_STATE.INITIALISED;									//Author: Kanchan Bala, Update changed variable name "state" to "currentUIState"
+		currentReturnBookControl.setUI(this);									//Author: Kanchan Bala, Update changed variable name "control" to "currentReturnBookControl"
 	}
 
 
@@ -23,7 +23,7 @@ public class ReturnBookUI {
 		
 		while (true) {
 			
-			switch (state) {
+			switch (currentUIState) {											//Author: Kanchan Bala, Update changed variable name "state" to "currentUIState"									
 			
 			case INITIALISED:
 				break;
@@ -58,7 +58,7 @@ public class ReturnBookUI {
 			
 			default:
 				output("Unhandled state");
-				throw new RuntimeException("ReturnBookUI : unhandled state :" + state);			
+				throw new RuntimeException("ReturnBookUI : unhandled state :" + currentUIState);	//Author: Kanchan Bala, Update changed variable name "state" to "currentUIState"		
 			}
 		}
 	}
