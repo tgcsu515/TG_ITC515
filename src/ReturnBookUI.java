@@ -50,7 +50,7 @@ public class ReturnBookUI {
 				if (ans.toUpperCase().equals("Y")) {					
 					isDamaged = true;
 				}
-				control.dischargeLoan(isDamaged);
+				currentReturnBookControl.dischargeLoan(isDamaged);				//Author: Kanchan Bala, Update changed variable name "control" to "currentReturnBookControl"					
 			
 			case COMPLETED:
 				output("Return processing complete");
