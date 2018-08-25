@@ -1,3 +1,11 @@
+/** Author: Kanchan Bala, Team Name: Team Genius, Student id: 11635336
+ * Reviewer: Amandeep Kaur, Mediator: Kasun Amarasinghe
+ * @version 9.0.4(build 9.0.4+ 11)
+ *
+ * In this program I have made few changes with variable names, they are changed to give the meaningful names as per the "Guidelines"
+ * Apart from these changes, I could not find any variable name, class name, indentation etcetra, which breach the guidelines.
+ */
+
 import java.util.Scanner;
 
 
