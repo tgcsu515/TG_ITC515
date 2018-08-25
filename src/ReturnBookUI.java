@@ -5,8 +5,8 @@ public class ReturnBookUI {
 
 	public static enum UI_STATE { INITIALISED, READY, INSPECTING, COMPLETED };
 
-	private ReturnBookControl control currentReturnBookControl;							//Author: Kanchan Bala, Changed variable name "control" to "currentReturnBookControl"
-"	private Scanner input;
+	private ReturnBookControl currentReturnBookControl;							//Author: Kanchan Bala, Changed variable name "control" to "currentReturnBookControl"
+	private Scanner input;
 	private UI_STATE state;
 
 	
