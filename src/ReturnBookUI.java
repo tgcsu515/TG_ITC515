@@ -7,13 +7,13 @@ public class ReturnBookUI {
 
 	private ReturnBookControl currentReturnBookControl;							//Author: Kanchan Bala, Changed variable name "control" to "currentReturnBookControl"
 	private Scanner input;
-	private UI_STATE state;
+	private UI_STATE currentUIState;											//Author: Kanchan Bala, Changed variable name "state" to "currentUIState"
 
 	
 	public ReturnBookUI(ReturnBookControl currentReturnBookControl) {					//Author: Kanchan Bala, Update changed variable name "control" to "currentReturnBookControl"		
 		this.currentReturnBookControl = currentReturnBookControl;						//Author: Kanchan Bala, Update changed variable name "control" to "currentReturnBookControl"
 		input = new Scanner(System.in);
-		state = UI_STATE.INITIALISED;
+		currentUIState = UI_STATE.INITIALISED;											//Author: Kanchan Bala, Update changed variable name "state" to "currentUIState"
 		currentReturnBookControl.setUI(this);											//Author: Kanchan Bala, Update changed variable name "control" to "currentReturnBookControl"
 	}
 
@@ -50,7 +50,7 @@ public class ReturnBookUI {
 				if (ans.toUpperCase().equals("Y")) {					
 					isDamaged = true;
 				}
-				currentReturnBookControl.dischargeLoan(isDamaged);				//Author: Kanchan Bala, Update changed variable name "control" to "currentReturnBookControl"					
+				currentReturnBookControl.dischargeLoan(isDamaged);									
 			
 			case COMPLETED:
 				output("Return processing complete");
