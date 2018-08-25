@@ -5,16 +5,16 @@ public class ReturnBookUI {
 
 	public static enum UI_STATE { INITIALISED, READY, INSPECTING, COMPLETED };
 
-	private ReturnBookControl control currentReturnBookControl;							//Author: Kanchan Bala, Changed variable name "control" to "currentReturnBookControl"
-"	private Scanner input;
+	private ReturnBookControl control;
+	private Scanner input;
 	private UI_STATE state;
 
 	
-	public ReturnBookUI(ReturnBookControl currentReturnBookControl) {					//Author: Kanchan Bala, Update changed variable name "control" to "currentReturnBookControl"		
-		this.currentReturnBookControl = currentReturnBookControl;						//Author: Kanchan Bala, Update changed variable name "control" to "currentReturnBookControl"
+	public ReturnBookUI(ReturnBookControl control) {
+		this.control = control;
 		input = new Scanner(System.in);
 		state = UI_STATE.INITIALISED;
-		currentReturnBookControl.setUI(this);											//Author: Kanchan Bala, Update changed variable name "control" to "currentReturnBookControl"
+		control.setUI(this);
 	}
 
 
