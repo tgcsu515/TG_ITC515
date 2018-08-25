@@ -14,7 +14,7 @@ public class ReturnBookControl {
 	private CONTROL_STATE currentControlState;			//Author: Kanchan Bala, Changed variable name "state" to "currentControlState"
 	
 	private Library currentLibrary;							//Author:Kanchan Bala, update class name "library" to "Library" and variable name "library to "currentLibrary"
-	private loan currentLoan;
+	private Loan currentLoan;								//Author:Kanchan Bala, Capitalize the first letter of "loan" to "Loan", as suggested by the reviewer, Amandeep Kaur
 	
 
 	public ReturnBookControl() {
