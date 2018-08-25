@@ -79,8 +79,8 @@ public class ReturnBookUI {
 		output(object);
 	}
 	
-	public void setState(UI_STATE state) {
-		this.state = state;
+	public void setState(UI_STATE currentUIState) {					//Author: Kanchan Bala, Update changed variable name "state" to "currentUIState"
+		this.currentUIState = currentUIState;						//Author: Kanchan Bala, Update changed variable name "state" to "currentUIState"
 	}
 
 	
