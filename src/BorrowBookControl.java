@@ -1,3 +1,12 @@
+/* Author: Gurpreet Gill, Team Name: Team Genius, Student id: 11622931
+ * Reviewer: Arashdeep Kaur, Mediator: Amandeep Kaur
+ * @version 9.0.4(build 9.0.4+ 11)
+ *
+ * In this program I have made few changes with variable names and class name, the variable names, changed to give the meaningful names as per the "Guidelines
+ * and class name, has been capatalized with first letter. Apart from these changes, I could not find any variable name, class name, indentation etcetra, which 
+ * breach the guidelines.
+ * This java program is control the record of Borrow Books.
+ */
 import java.util.ArrayList;
 import java.util.List;
 
